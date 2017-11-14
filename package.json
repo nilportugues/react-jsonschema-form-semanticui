@@ -1,7 +1,7 @@
 {
-  "name": "react-jsonschema-form-semanticui",
+  "name": "react-jsonschema-form-semanticui-semanticui",
   "version": "1.0.0",
-  "description": "A simple React component capable of building HTML forms out of a JSON schema.",
+  "description": "A simple React component capable of building HTML forms out of a JSON schema using React Semantic UI.",
   "scripts": {
     "build:readme": "toctoc README.md -w",
     "build:lib": "rimraf lib && cross-env NODE_ENV=production babel -d lib/ src/",
@@ -43,6 +43,8 @@
     "ajv": "^5.2.3",
     "lodash.topath": "^4.5.2",
     "prop-types": "^15.5.8",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.76.0",
     "setimmediate": "^1.0.5"
   },
   "devDependencies": {
@@ -99,7 +101,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mozilla-services/react-jsonschema-form.git"
+    "url": "git+https://github.com/nilportugues/react-jsonschema-form-semanticui.git"
   },
   "author": "Nicolas Perriault <nperriault@mozilla.com>",
   "keywords": [
@@ -108,5 +110,5 @@
     "json-schema"
   ],
   "license": "Apache-2.0",
-  "homepage": "https://github.com/mozilla-services/react-jsonschema-form#readme"
+  "homepage": "https://github.com/nilportugues/react-jsonschema-form-semanticui#readme"
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Input } from "semantic-ui-react";
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
@@ -22,9 +23,12 @@ function BaseInput(props) {
   const _onChange = ({ target: { value } }) => {
     return props.onChange(value === "" ? options.emptyValue : value);
   };
+
+  //Remove labels to make it look just like Bootstrap.
+  inputProps.label = null;
+
   return (
-    <input
-      className="form-control"
+    <Input
       readOnly={readonly}
       disabled={disabled}
       autoFocus={autofocus}

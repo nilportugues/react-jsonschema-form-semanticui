@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { TextArea } from "semantic-ui-react";
 
 function TextareaWidget(props) {
   const {
@@ -19,20 +20,22 @@ function TextareaWidget(props) {
     return onChange(value === "" ? options.emptyValue : value);
   };
   return (
-    <textarea
-      id={id}
-      className="form-control"
-      value={typeof value === "undefined" ? "" : value}
-      placeholder={placeholder}
-      required={required}
-      disabled={disabled}
-      readOnly={readonly}
-      autoFocus={autofocus}
-      rows={options.rows}
-      onBlur={onBlur && (event => onBlur(id, event.target.value))}
-      onFocus={onFocus && (event => onFocus(id, event.target.value))}
-      onChange={_onChange}
-    />
+    <div>
+      <TextArea
+        as="textarea"
+        id={id}
+        value={typeof value === "undefined" ? "" : value}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
+        readOnly={readonly}
+        autoFocus={autofocus}
+        rows={options.rows}
+        onBlur={onBlur && (event => onBlur(id, event.target.value))}
+        onFocus={onFocus && (event => onFocus(id, event.target.value))}
+        onChange={_onChange}
+      />
+    </div>
   );
 }
 

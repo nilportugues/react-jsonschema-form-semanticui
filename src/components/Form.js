@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Form as FormSematicUI } from "semantic-ui-react";
 
 import { default as DefaultErrorList } from "./ErrorList";
 import {
@@ -164,7 +165,6 @@ export default class Form extends Component {
       children,
       safeRenderCompletion,
       id,
-      className,
       name,
       method,
       target,
@@ -180,8 +180,7 @@ export default class Form extends Component {
     const _SchemaField = registry.fields.SchemaField;
 
     return (
-      <form
-        className={className ? className : "rjsf"}
+      <FormSematicUI
         id={id}
         name={name}
         method={method}
@@ -214,7 +213,7 @@ export default class Form extends Component {
             </button>
           </p>
         )}
-      </form>
+      </FormSematicUI>
     );
   }
 }
