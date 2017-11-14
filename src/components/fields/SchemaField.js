@@ -10,6 +10,7 @@ import {
   deepEquals,
 } from "../../utils";
 import UnsupportedField from "./UnsupportedField";
+import { List, ListItem } from "semantic-ui-react";
 
 const REQUIRED_FIELD_SYMBOL = "*";
 const COMPONENT_TYPES = {
@@ -73,18 +74,23 @@ function ErrorList(props) {
   if (errors.length === 0) {
     return <div />;
   }
+
   return (
-    <div>
-      <p />
-      <ul className="error-detail bs-callout bs-callout-info">
+    <div
+      className="ui error message"
+      style={{
+        display: "block",
+        backgroundColor: "transparent",
+        borderColor: "transparent",
+        boxShadow: "none",
+        paddingTop: "0",
+        paddingBottom: "0",
+      }}>
+      <List bulleted>
         {errors.map((error, index) => {
-          return (
-            <li className="text-danger" key={index}>
-              {error}
-            </li>
-          );
+          return <ListItem key={index}>{error}</ListItem>;
         })}
-      </ul>
+      </List>
     </div>
   );
 }
