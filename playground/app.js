@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import CodeMirror from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
+import { Icon, Grid, Container, Header, Divider } from "semantic-ui-react";
 
 import { shouldRender } from "../src/utils";
 import { samples } from "./samples";
@@ -141,15 +142,15 @@ class GeoPosition extends Component {
   render() {
     const { lat, lon } = this.state;
     return (
-      <div className="geo">
+      <Grid.Row className="geo">
         <h3>Hey, I'm a custom component</h3>
         <p>
           I'm registered as <code>geo</code> and referenced in
           <code>uiSchema</code> as the <code>ui:field</code> to use for this
           schema.
         </p>
-        <div className="row">
-          <div className="col-sm-6">
+        <Grid.Row>
+          <div className="6">
             <label>Latitude</label>
             <input
               className="form-control"
@@ -159,7 +160,7 @@ class GeoPosition extends Component {
               onChange={this.onChange("lat")}
             />
           </div>
-          <div className="col-sm-6">
+          <div className="6">
             <label>Longitude</label>
             <input
               className="form-control"
@@ -169,8 +170,8 @@ class GeoPosition extends Component {
               onChange={this.onChange("lon")}
             />
           </div>
-        </div>
-      </div>
+        </Grid.Row>
+      </Grid.Row>
     );
   }
 }
@@ -202,20 +203,22 @@ class Editor extends Component {
 
   render() {
     const { title, theme } = this.props;
-    const icon = this.state.valid ? "ok" : "remove";
-    const cls = this.state.valid ? "valid" : "invalid";
+    //const icon = this.state.valid ? "ok" : "remove";
+    const cls = this.state.valid ? "check" : "close";
     return (
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <span className={`${cls} glyphicon glyphicon-${icon}`} />
-          {" " + title}
-        </div>
-        <CodeMirror
-          value={this.state.code}
-          onChange={this.onCodeChange}
-          options={Object.assign({}, cmOptions, { theme })}
-        />
-      </div>
+      <Grid.Row>
+        <Grid.Column>
+          <Header attached="top" as="h5" block>
+            <Icon name={cls} size={"small"} />
+            {title}
+          </Header>
+          <CodeMirror
+            value={this.state.code}
+            onChange={this.onCodeChange}
+            options={Object.assign({}, cmOptions, { theme })}
+          />
+        </Grid.Column>
+      </Grid.Row>
     );
   }
 }
@@ -240,20 +243,20 @@ class Selector extends Component {
 
   render() {
     return (
-      <ul className="nav nav-pills">
+      <Container fluid>
         {Object.keys(samples).map((label, i) => {
           return (
-            <li
+            <Button
+              basic
               key={i}
               role="presentation"
-              className={this.state.current === label ? "active" : ""}>
-              <a href="#" onClick={this.onLabelClick(label)}>
-                {label}
-              </a>
-            </li>
+              className={this.state.current === label ? "active" : ""}
+              onClick={this.onLabelClick(label)}>
+              {label}
+            </Button>
           );
         })}
-      </ul>
+      </Container>
     );
   }
 }
@@ -403,92 +406,109 @@ class App extends Component {
     } = this.state;
 
     return (
-      <div className="container-fluid">
-        <div className="page-header">
-          <h1>react-jsonschema-form</h1>
-          <div className="row">
-            <div className="col-sm-8">
+      <Container fluid style={{ padding: "24px" }}>
+        <Header as="h1">react-jsonschema-form-semantic-ui</Header>
+
+        <Grid columns={16}>
+          <Grid.Row>
+            <Grid.Column width={12}>
               <Selector onSelected={this.load} />
-            </div>
-            <div className="col-sm-2">
+            </Grid.Column>
+
+            <Grid.Column width={2}>
               <Form
                 schema={liveValidateSchema}
                 formData={liveValidate}
-                onChange={this.setLiveValidate}>
-                <div />
-              </Form>
-            </div>
-            <div className="col-sm-2">
+                onChange={this.setLiveValidate}
+              />
+            </Grid.Column>
+
+            <Grid.Column width={2}>
               <ThemeSelector theme={theme} select={this.onThemeSelected} />
-            </div>
-          </div>
-        </div>
-        <div className="col-sm-7">
-          <Editor
-            title="JSONSchema"
-            theme={editor}
-            code={toJson(schema)}
-            onChange={this.onSchemaEdited}
-          />
-          <div className="row">
-            <div className="col-sm-6">
-              <Editor
-                title="UISchema"
-                theme={editor}
-                code={toJson(uiSchema)}
-                onChange={this.onUISchemaEdited}
-              />
-            </div>
-            <div className="col-sm-6">
-              <Editor
-                title="formData"
-                theme={editor}
-                code={toJson(formData)}
-                onChange={this.onFormDataEdited}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="col-sm-5">
-          {this.state.form && (
-            <Form
-              ArrayFieldTemplate={ArrayFieldTemplate}
-              ObjectFieldTemplate={ObjectFieldTemplate}
-              liveValidate={liveValidate}
-              schema={schema}
-              uiSchema={uiSchema}
-              formData={formData}
-              onChange={this.onFormDataChange}
-              onSubmit={({ formData }) =>
-                console.log("submitted formData", formData)
-              }
-              fields={{ geo: GeoPosition }}
-              validate={validate}
-              onBlur={(id, value) =>
-                console.log(`Touched ${id} with value ${value}`)
-              }
-              onFocus={(id, value) =>
-                console.log(`Focused ${id} with value ${value}`)
-              }
-              transformErrors={transformErrors}
-              onError={log("errors")}>
-              <div className="row">
-                <div className="col-sm-3">
-                  <button className="btn btn-primary" type="submit">
-                    Submit
-                  </button>
-                </div>
-                <div className="col-sm-9 text-right">
-                  <CopyLink
-                    shareURL={this.state.shareURL}
-                    onShare={this.onShare}
-                  />
-                </div>
-              </div>
-            </Form>
-          )}
-        </div>
-      </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+
+        <Divider />
+
+        <Grid columns={16}>
+          <Grid.Column width={10}>
+            <Grid.Row>
+              <Grid.Column width={10}>
+                <Editor
+                  title="JSONSchema"
+                  theme={editor}
+                  code={toJson(schema)}
+                  onChange={this.onSchemaEdited}
+                />
+              </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Row>
+              <Grid>
+                <Grid.Row>
+                  <Grid.Column width={8}>
+                    <Editor
+                      title="UISchema"
+                      theme={editor}
+                      code={toJson(uiSchema)}
+                      onChange={this.onUISchemaEdited}
+                    />
+                  </Grid.Column>
+                  <Grid.Column width={8}>
+                    <Editor
+                      title="formData"
+                      theme={editor}
+                      code={toJson(formData)}
+                      onChange={this.onFormDataEdited}
+                    />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Grid.Row>
+          </Grid.Column>
+
+          <Grid.Column width={6}>
+            {this.state.form && (
+              <Form
+                ArrayFieldTemplate={ArrayFieldTemplate}
+                ObjectFieldTemplate={ObjectFieldTemplate}
+                liveValidate={liveValidate}
+                schema={schema}
+                uiSchema={uiSchema}
+                formData={formData}
+                onChange={this.onFormDataChange}
+                onSubmit={({ formData }) =>
+                  console.log("submitted formData", formData)
+                }
+                fields={{ geo: GeoPosition }}
+                validate={validate}
+                onBlur={(id, value) =>
+                  console.log(`Touched ${id} with value ${value}`)
+                }
+                onFocus={(id, value) =>
+                  console.log(`Focused ${id} with value ${value}`)
+                }
+                transformErrors={transformErrors}
+                onError={log("errors")}>
+                <Grid.Row>
+                  <Grid.Column width={3}>
+                    <button className="btn btn-primary" type="submit">
+                      Submit
+                    </button>
+                  </Grid.Column>
+                  <Grid.Column width={9}>
+                    <CopyLink
+                      shareURL={this.state.shareURL}
+                      onShare={this.onShare}
+                    />
+                  </Grid.Column>
+                </Grid.Row>
+              </Form>
+            )}
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }
