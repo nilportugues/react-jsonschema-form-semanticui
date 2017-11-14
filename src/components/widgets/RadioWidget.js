@@ -64,7 +64,10 @@ class RadioGroup extends Component {
           );
 
           return inline ? (
-            <label key={i} className={`radio-inline ${disabledCls}`}>
+            <label
+              key={i}
+              className={`radio-inline ${disabledCls}`}
+              style={{ margin: "0 6px" }}>
               {radio}
             </label>
           ) : (
