@@ -10,7 +10,7 @@ import {
 function DefaultObjectFieldTemplate(props) {
   const { TitleField, DescriptionField } = props;
   return (
-    <fieldset>
+    <div>
       {(props.uiSchema["ui:title"] || props.title) && (
         <TitleField
           id={`${props.idSchema.$id}__title`}
@@ -27,7 +27,7 @@ function DefaultObjectFieldTemplate(props) {
         />
       )}
       {props.properties.map(prop => prop.content)}
-    </fieldset>
+    </div>
   );
 }
 

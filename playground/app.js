@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import CodeMirror from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
-import { Icon, Grid, Container, Header, Divider } from "semantic-ui-react";
+import {
+  Icon,
+  Grid,
+  Container,
+  Header,
+  Divider,
+  Button,
+} from "semantic-ui-react";
 
 import { shouldRender } from "../src/utils";
 import { samples } from "./samples";
@@ -206,19 +213,23 @@ class Editor extends Component {
     //const icon = this.state.valid ? "ok" : "remove";
     const cls = this.state.valid ? "check" : "close";
     return (
-      <Grid.Row>
-        <Grid.Column>
-          <Header attached="top" as="h5" block>
-            <Icon name={cls} size={"small"} />
-            {title}
-          </Header>
-          <CodeMirror
-            value={this.state.code}
-            onChange={this.onCodeChange}
-            options={Object.assign({}, cmOptions, { theme })}
-          />
-        </Grid.Column>
-      </Grid.Row>
+      <div style={{ padding: "6px 0" }}>
+        <Grid.Row>
+          <Grid.Column>
+            <Header attached="top" as="h5" block>
+              <Icon name={cls} size={"small"} />
+              {title}
+            </Header>
+            <div style={{ border: "1px solid #d4d4d5", borderTop: "0" }}>
+              <CodeMirror
+                value={this.state.code}
+                onChange={this.onCodeChange}
+                options={Object.assign({}, cmOptions, { theme })}
+              />
+            </div>
+          </Grid.Column>
+        </Grid.Row>
+      </div>
     );
   }
 }
@@ -286,27 +297,17 @@ class CopyLink extends Component {
     const { shareURL, onShare } = this.props;
     if (!shareURL) {
       return (
-        <button className="btn btn-default" type="button" onClick={onShare}>
+        <Button basic type="button" onClick={onShare}>
           Share
-        </button>
+        </Button>
       );
     }
     return (
-      <div className="input-group">
-        <input
-          type="text"
-          ref={input => (this.input = input)}
-          className="form-control"
-          defaultValue={shareURL}
-        />
-        <span className="input-group-btn">
-          <button
-            className="btn btn-default"
-            type="button"
-            onClick={this.onCopyClick}>
-            <i className="glyphicon glyphicon-copy" />
-          </button>
-        </span>
+      <div>
+        <input ref={input => (this.input = input)} defaultValue={shareURL} />
+        <Button onClick={this.onCopyClick}>
+          <Icon name="copy" />
+        </Button>
       </div>
     );
   }
@@ -491,19 +492,19 @@ class App extends Component {
                 }
                 transformErrors={transformErrors}
                 onError={log("errors")}>
-                <Grid.Row>
-                  <Grid.Column width={3}>
-                    <button className="btn btn-primary" type="submit">
+                <Grid>
+                  <Grid.Column width={4}>
+                    <Button primary type="submit">
                       Submit
-                    </button>
+                    </Button>
                   </Grid.Column>
-                  <Grid.Column width={9}>
+                  <Grid.Column width={12}>
                     <CopyLink
                       shareURL={this.state.shareURL}
                       onShare={this.onShare}
                     />
                   </Grid.Column>
-                </Grid.Row>
+                </Grid>
               </Form>
             )}
           </Grid.Column>
