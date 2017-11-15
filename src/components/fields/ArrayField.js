@@ -57,7 +57,7 @@ function DefaultArrayItem(props) {
         boxShadow: "none",
         border: "1px solid rgba(34,36,38,.15)",
       }}>
-      <Card.Content>
+      <Card.Content style={{ padding: "6px" }}>
         <Grid columns={16}>
           <Grid.Column width={props.hasToolbar ? 12 : 16} floated="left">
             {props.children}
