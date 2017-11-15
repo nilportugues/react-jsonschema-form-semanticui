@@ -14,6 +14,7 @@ import {
 import { shouldRender } from "../src/utils";
 import { samples } from "./samples";
 import Form from "../src";
+import { v4 as uuid4 } from "uuid";
 
 // Import a few CodeMirror themes; these are used to match alternative
 // bootstrap ones.
@@ -214,14 +215,15 @@ class Editor extends Component {
     const cls = this.state.valid ? "check" : "close";
     return (
       <div style={{ padding: "6px 0" }}>
-        <Grid.Row>
-          <Grid.Column>
+        <Grid.Row key={uuid4()}>
+          <Grid.Column key={uuid4()}>
             <Header attached="top" as="h5" block>
               <Icon name={cls} size={"small"} />
               {title}
             </Header>
             <div style={{ border: "1px solid #d4d4d5", borderTop: "0" }}>
               <CodeMirror
+                key={uuid4()}
                 value={this.state.code}
                 onChange={this.onCodeChange}
                 options={Object.assign({}, cmOptions, { theme })}

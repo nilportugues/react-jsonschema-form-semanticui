@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Grid, Card, Button, Icon } from "semantic-ui-react";
+import { v4 as uuid4 } from "uuid";
 
 import UnsupportedField from "./UnsupportedField";
 import {
@@ -51,16 +52,17 @@ function DefaultArrayItem(props) {
   };
   return (
     <Card
+      key={uuid4()}
       fluid
       raised={false}
       style={{
         boxShadow: "none",
         border: "1px solid rgba(34,36,38,.15)",
       }}>
-      <Card.Content style={{ padding: "6px" }}>
+      <Card.Content key={uuid4()} style={{ padding: "6px" }}>
         <Grid columns={16}>
           <Grid.Column width={props.hasToolbar ? 12 : 16} floated="left">
-            {props.children}
+            <div>{props.children}</div>
           </Grid.Column>
 
           {props.hasToolbar && (
@@ -69,6 +71,7 @@ function DefaultArrayItem(props) {
                 <Button.Group>
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <IconBtn
+                      key={uuid4()}
                       icon="arrow up"
                       className="array-item-move-up"
                       tabIndex="-1"
@@ -85,6 +88,7 @@ function DefaultArrayItem(props) {
 
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <IconBtn
+                      key={uuid4()}
                       icon="arrow down"
                       className="array-item-move-down"
                       tabIndex="-1"
@@ -101,6 +105,7 @@ function DefaultArrayItem(props) {
 
                   {props.hasRemove && (
                     <IconBtn
+                      key={uuid4()}
                       icon="remove"
                       className="array-item-remove"
                       tabIndex="-1"
@@ -184,6 +189,7 @@ function DefaultNormalArrayFieldTemplate(props) {
 
       {props.canAdd && (
         <AddButton
+          key={uuid4()}
           onClick={props.onAddClick}
           disabled={props.disabled || props.readonly}
         />
@@ -262,9 +268,10 @@ class ArrayField extends Component {
     return event => {
       if (event) {
         event.preventDefault();
-        event.target.blur();
+        //event.target.blur();
       }
       const { formData, onChange } = this.props;
+
       onChange(
         formData.map((item, i) => {
           if (i === newIndex) {
@@ -630,6 +637,7 @@ function AddButton({ onClick, disabled }) {
       <div className="row">
         <p className="col-xs-3 col-xs-offset-9 array-item-add text-right">
           <Button
+            key={uuid4()}
             icon
             positive
             compact
