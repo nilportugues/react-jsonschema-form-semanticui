@@ -33,7 +33,6 @@
   ],
   "engineStrict": false,
   "engines": {
-    "npm": "^2.14.7",
     "node": ">=6"
   },
   "peerDependencies": {
@@ -43,6 +42,7 @@
     "ajv": "^5.2.3",
     "lodash.topath": "^4.5.2",
     "prop-types": "^15.5.8",
+    "react-beautiful-dnd": "^2.6.1",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.76.0",
     "setimmediate": "^1.0.5"
