@@ -1,5 +1,8 @@
-react-jsonschema-form
+react-jsonschema-form-semantic-ui
 =====================
+
+Drag and drop order lists https://github.com/atlassian/react-beautiful-dnd/blob/master/README.md
+---
 
 [![Build Status](https://travis-ci.org/mozilla-services/react-jsonschema-form.svg)](https://travis-ci.org/mozilla-services/react-jsonschema-form)
 
