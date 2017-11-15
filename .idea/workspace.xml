@@ -4,7 +4,6 @@
     <list default="true" id="b0e052fb-8a4d-42c5-9421-5aafabab708b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/fields/ArrayField.js" afterPath="$PROJECT_DIR$/src/components/fields/ArrayField.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/widgets/RadioWidget.js" afterPath="$PROJECT_DIR$/src/components/widgets/RadioWidget.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,13 +30,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArrayField.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArrayField.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/fields/ArrayField.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="64" column="54" lean-forward="false" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+            <state relative-caret-position="3270">
+              <caret line="237" column="5" lean-forward="true" selection-start-line="237" selection-start-column="5" selection-end-line="237" selection-end-column="5" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectWidget.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/widgets/SelectWidget.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RadioWidget.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RadioWidget.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/widgets/RadioWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="70" column="60" lean-forward="false" selection-start-line="70" selection-start-column="60" selection-end-line="70" selection-end-column="60" />
+            <state relative-caret-position="560">
+              <caret line="73" column="59" lean-forward="false" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -79,9 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>type='&quot;radio&quot;</find>
-      <find>type='radio&quot;</find>
-      <find>type='radio'</find>
       <find>ra</find>
       <find>rad</find>
       <find>Segment</find>
@@ -109,6 +117,9 @@
       <find>listimte</find>
       <find>Header</find>
       <find>array-item-move-down</find>
+      <find>Button</find>
+      <find>IconBtn</find>
+      <find>Ic</find>
     </findStrings>
     <replaceStrings>
       <replace>nilportugues</replace>
@@ -133,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/components/widgets/BaseInput.js" />
         <option value="$PROJECT_DIR$/playground/index.html" />
         <option value="$PROJECT_DIR$/src/components/Form.js" />
-        <option value="$PROJECT_DIR$/src/components/widgets/SelectWidget.js" />
         <option value="$PROJECT_DIR$/src/components/widgets/TextareaWidget.js" />
         <option value="$PROJECT_DIR$/src/components/fields/DescriptionField.js" />
         <option value="$PROJECT_DIR$/src/components/fields/TitleField.js" />
@@ -142,8 +152,9 @@
         <option value="$PROJECT_DIR$/src/components/fields/ObjectField.js" />
         <option value="$PROJECT_DIR$/src/components/ErrorList.js" />
         <option value="$PROJECT_DIR$/src/components/fields/SchemaField.js" />
-        <option value="$PROJECT_DIR$/src/components/fields/ArrayField.js" />
         <option value="$PROJECT_DIR$/src/components/widgets/RadioWidget.js" />
+        <option value="$PROJECT_DIR$/src/components/widgets/SelectWidget.js" />
+        <option value="$PROJECT_DIR$/src/components/fields/ArrayField.js" />
       </list>
     </option>
   </component>
@@ -387,12 +398,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1510682498015</updated>
-      <workItem from="1510682499192" duration="19375000" />
+      <workItem from="1510682499192" duration="23501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19375000" />
+    <option name="totallyTimeSpent" value="23501000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,16 +539,6 @@
           <caret line="170" column="13" lean-forward="true" selection-start-line="170" selection-start-column="13" selection-end-line="170" selection-end-column="13" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/SelectWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="60" column="33" lean-forward="false" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -730,16 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/fields/ArrayField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="64" column="54" lean-forward="false" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/widgets/CheckboxesWidget.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -758,8 +749,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/widgets/RadioWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="70" column="60" lean-forward="false" selection-start-line="70" selection-start-column="60" selection-end-line="70" selection-end-column="60" />
+        <state relative-caret-position="560">
+          <caret line="73" column="59" lean-forward="false" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/widgets/SelectWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/fields/ArrayField.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3270">
+          <caret line="237" column="5" lean-forward="true" selection-start-line="237" selection-start-column="5" selection-end-line="237" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

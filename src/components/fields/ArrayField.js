@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Grid, Card } from "semantic-ui-react";
+import { Grid, Card, Button, Icon } from "semantic-ui-react";
 
 import UnsupportedField from "./UnsupportedField";
 import {
@@ -36,14 +36,11 @@ function ArrayFieldDescription({ DescriptionField, idSchema, description }) {
 }
 
 function IconBtn(props) {
-  const { type = "default", icon, className, ...otherProps } = props;
+  const { icon, className, ...otherProps } = props;
   return (
-    <button
-      type="button"
-      className={`btn btn-${type} ${className}`}
-      {...otherProps}>
-      <i className={`glyphicon glyphicon-${icon}`} />
-    </button>
+    <Button icon size={"mini"} compact={true} {...otherProps}>
+      <Icon name={icon} />
+    </Button>
   );
 }
 
@@ -51,9 +48,6 @@ function IconBtn(props) {
 function DefaultArrayItem(props) {
   const btnStyle = {
     flex: 1,
-    paddingLeft: 6,
-    paddingRight: 6,
-    fontWeight: "bold",
   };
   return (
     <Card
@@ -64,53 +58,58 @@ function DefaultArrayItem(props) {
         border: "1px solid rgba(34,36,38,.15)",
       }}>
       <Card.Content>
-        <Grid columns={16} relaxed>
-          <Grid.Column width={props.hasToolbar ? 13 : 16}>
+        <Grid columns={16}>
+          <Grid.Column width={props.hasToolbar ? 12 : 16} floated="left">
             {props.children}
           </Grid.Column>
 
           {props.hasToolbar && (
-            <Grid.Column width={3}>
-              <div
-                className="btn-group"
-                style={{ display: "flex", justifyContent: "space-around" }}>
-                {(props.hasMoveUp || props.hasMoveDown) && (
-                  <IconBtn
-                    icon="arrow-up"
-                    className="array-item-move-up"
-                    tabIndex="-1"
-                    style={btnStyle}
-                    disabled={
-                      props.disabled || props.readonly || !props.hasMoveUp
-                    }
-                    onClick={props.onReorderClick(props.index, props.index - 1)}
-                  />
-                )}
+            <Grid.Column width={4} floated="right">
+              <div style={{ float: "right" }}>
+                <Button.Group>
+                  {(props.hasMoveUp || props.hasMoveDown) && (
+                    <IconBtn
+                      icon="arrow up"
+                      className="array-item-move-up"
+                      tabIndex="-1"
+                      style={btnStyle}
+                      disabled={
+                        props.disabled || props.readonly || !props.hasMoveUp
+                      }
+                      onClick={props.onReorderClick(
+                        props.index,
+                        props.index - 1
+                      )}
+                    />
+                  )}
 
-                {(props.hasMoveUp || props.hasMoveDown) && (
-                  <IconBtn
-                    icon="arrow-down"
-                    className="array-item-move-down"
-                    tabIndex="-1"
-                    style={btnStyle}
-                    disabled={
-                      props.disabled || props.readonly || !props.hasMoveDown
-                    }
-                    onClick={props.onReorderClick(props.index, props.index + 1)}
-                  />
-                )}
+                  {(props.hasMoveUp || props.hasMoveDown) && (
+                    <IconBtn
+                      icon="arrow down"
+                      className="array-item-move-down"
+                      tabIndex="-1"
+                      style={btnStyle}
+                      disabled={
+                        props.disabled || props.readonly || !props.hasMoveDown
+                      }
+                      onClick={props.onReorderClick(
+                        props.index,
+                        props.index + 1
+                      )}
+                    />
+                  )}
 
-                {props.hasRemove && (
-                  <IconBtn
-                    type="danger"
-                    icon="remove"
-                    className="array-item-remove"
-                    tabIndex="-1"
-                    style={btnStyle}
-                    disabled={props.disabled || props.readonly}
-                    onClick={props.onDropIndexClick(props.index)}
-                  />
-                )}
+                  {props.hasRemove && (
+                    <IconBtn
+                      icon="remove"
+                      className="array-item-remove"
+                      tabIndex="-1"
+                      style={btnStyle}
+                      disabled={props.disabled || props.readonly}
+                      onClick={props.onDropIndexClick(props.index)}
+                    />
+                  )}
+                </Button.Group>
               </div>
             </Grid.Column>
           )}
