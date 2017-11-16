@@ -172,9 +172,6 @@ function DefaultFixedArrayFieldTemplate(props) {
 
 
 function DefaultNormalArrayFieldTemplate(props) {
-
-
-
   return (
     <div className="sortable-form-fields">
       <div className={props.className}>
@@ -253,6 +250,7 @@ class SortableComponent extends Component {
         });
     };
     render() {
+     //   this.setState({items: this.props.items});
         return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
     }
 }
