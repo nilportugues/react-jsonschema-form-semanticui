@@ -69,7 +69,7 @@ function SelectWidget(props) {
       disabled={disabled}
       required={required}
       autofocus={autofocus}
-      readonly={readonly}
+      readOnly={readonly}
       onBlur={
         onBlur &&
         ((event, self) => {

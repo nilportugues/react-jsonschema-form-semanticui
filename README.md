@@ -6,7 +6,7 @@ react-jsonschema-form-semantic-ui
 
 These libraries will be added to support features not provided by SemanticUI.
  
-- Atlassian's Drag & Drop Ordering: https://github.com/atlassian/react-beautiful-dnd
+- https://github.com/clauderic/react-sortable-hoc
 - AirBnB's Date Pickers: https://github.com/airbnb/react-dates
 - Felix Rieseberg's File Upload: https://github.com/felixrieseberg/React-Dropzone-Component
 

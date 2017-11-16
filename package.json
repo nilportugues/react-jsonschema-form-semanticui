@@ -43,6 +43,7 @@
     "lodash.topath": "^4.5.2",
     "prop-types": "^15.5.8",
     "react-beautiful-dnd": "^2.6.1",
+    "react-sortable-hoc": "^0.6.8",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.76.0",
     "setimmediate": "^1.0.5",

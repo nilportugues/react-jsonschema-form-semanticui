@@ -17,6 +17,7 @@ import {
   toIdSchema,
   getDefaultRegistry,
 } from "../../utils";
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 function ArrayFieldTitle({ TitleField, idSchema, title, required }) {
   if (!title) {
@@ -169,7 +170,11 @@ function DefaultFixedArrayFieldTemplate(props) {
   );
 }
 
+
 function DefaultNormalArrayFieldTemplate(props) {
+
+
+
   return (
     <div className="sortable-form-fields">
       <div className={props.className}>
@@ -194,11 +199,13 @@ function DefaultNormalArrayFieldTemplate(props) {
 
         <div style={sharedStyle}>
           {/* @todo: replace this for drag and drop */}
+            {/*
           <div
             className="row array-item-list"
             key={`array-item-list-${props.idSchema.$id}`}>
             {props.items && props.items.map(p => DefaultArrayItem(p))}
-          </div>
+          </div> */}
+          <SortableComponent items={props.items.map(p => DefaultArrayItem(p))} />
 
           {props.canAdd && (
             <div style={{ position: "relative", float: "right" }}>
@@ -214,6 +221,44 @@ function DefaultNormalArrayFieldTemplate(props) {
     </div>
   );
 }
+const SortableItem = SortableElement(({ value }) =>
+    <div>{value}</div>
+);
+
+const SortableList = SortableContainer(({items}) => {
+    return (
+        <div>
+            {items.map((value, index) => (
+                <SortableItem key={`item-${index}`} index={index} value={value} />
+            ))}
+        </div>
+    );
+});
+
+class SortableComponent extends Component {
+    state = {
+        items: [],
+    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: props.items
+        };
+    }
+
+    onSortEnd = ({ oldIndex, newIndex }) => {
+        this.setState({
+            items: arrayMove(this.state.items, oldIndex, newIndex),
+        });
+    };
+    render() {
+        return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
+    }
+}
+
+
+
 
 class ArrayField extends Component {
   static defaultProps = {
