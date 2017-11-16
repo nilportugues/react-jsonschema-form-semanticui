@@ -2,10 +2,13 @@ react-jsonschema-form-semantic-ui-semantic-ui
 =====================
 
 
-## Additions:
- 
-- Drag and drop order lists https://github.com/atlassian/react-beautiful-dnd/blob/master/README.md
+## Additions (WIP):
 
+These libraries will be added to support features not provided by SemanticUI.
+ 
+- Atlassian's Drag & Drop Ordering: https://github.com/atlassian/react-beautiful-dnd
+- AirBnB's Date Pickers: https://github.com/airbnb/react-dates
+- Felix Rieseberg's File Upload: https://github.com/felixrieseberg/React-Dropzone-Component
 
 ---
 
@@ -104,7 +107,6 @@ A [live playground](https://nilportugues.github.io/react-jsonschema-form-semanti
      - [Development server](#development-server)
      - [Tests](#tests)
         - [TDD](#tdd)
-  - [FAQ](#faq)
   - [License](#license)
 
 ---
@@ -1759,16 +1761,6 @@ $ npm run dist
 $ npm publish
 $ git push --tags origin
 ```
-
-## FAQ
-
-### Q: Does rjsf support `oneOf`, `anyOf`, multiple types in an array, etc.?
-
-A: Not yet (except for a special case where you can use `oneOf` in [schema dependencies](#schema-dependencies)), but perhaps you will be the person whose PR will finally add the feature in a way that gets merged. For inspiration, see [#329](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/pull/329) or [#417](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/pull/417). See also: [#52](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/52), [#151](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/151), [#171](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/171), [#200](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/200), [#282](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/282), [#302](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/pull/302), [#330](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/330), [#430](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/430), [#522](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/522), [#538](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/538), [#551](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/551), [#552](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/552), or [#648](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/648).
-
-### Q: Will react-jsonschema-form-semantic-ui support Material, Ant-Design, Foundation, or [some other specific widget library or frontend style]?
-
-A: Probably not. We use SemanticUI v3 and it works fine for our needs. We would like for react-jsonschema-form-semantic-ui to support other frameworks, we just don't want to support them ourselves. Ideally, these frontend styles could be added to react-jsonschema-form-semantic-ui with a third-party library. If there is a technical limitation preventing this, please consider opening a PR. See also: [#91](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/91), [#99](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/99), [#125](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/125), [#237](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/237), [#287](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/287), [#299](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/299), [#440](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/440), [#461](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/461), [#546](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/546), [#555](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/555), [#626](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/issues/626), and [#623](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/pull/623).
 
 ## License
 
