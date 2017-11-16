@@ -675,6 +675,18 @@ render((
 
 **Warning:** there should be a button or an input with `type="submit"` to trigger the form submission (and then the form validation).
 
+### No Submit Form button
+
+Sometimes you want no Submit button. The best way to achieve this is as follows:
+
+```jsx
+render((
+  <Form schema={schema}>
+    <div></div>
+  </Form>
+), document.getElementById("app"));
+```
+
 ### Help texts
 
 Sometimes it's convenient to add some text next to a field to guide the end user filling it; this is the purpose of the `ui:help` uiSchema directive:

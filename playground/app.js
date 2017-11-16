@@ -401,7 +401,6 @@ class App extends Component {
       formData,
       liveValidate,
       validate,
-      theme,
       editor,
       ArrayFieldTemplate,
       ObjectFieldTemplate,
@@ -418,16 +417,8 @@ class App extends Component {
               <Selector onSelected={this.load} />
             </Grid.Column>
 
-            <Grid.Column width={2}>
-              <Form
-                schema={liveValidateSchema}
-                formData={liveValidate}
-                onChange={this.setLiveValidate}
-              />
-            </Grid.Column>
-
-            <Grid.Column width={2}>
-              <ThemeSelector theme={theme} select={this.onThemeSelected} />
+            <Grid.Column width={4}>
+              <Form schema={liveValidateSchema} formData={liveValidate}><div>&nbsp;</div></Form>
             </Grid.Column>
           </Grid.Row>
         </Grid>
