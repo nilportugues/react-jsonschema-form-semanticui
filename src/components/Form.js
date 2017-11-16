@@ -203,7 +203,13 @@ export default class Form extends Component {
           registry={registry}
           safeRenderCompletion={safeRenderCompletion}
         />
-        {children ? (children) : (<Button primary type="submit">Submit</Button>)}
+        {children ? (
+          children
+        ) : (
+          <Button primary type="submit">
+            Submit
+          </Button>
+        )}
       </FormSematicUI>
     );
   }

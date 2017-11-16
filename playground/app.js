@@ -418,7 +418,9 @@ class App extends Component {
             </Grid.Column>
 
             <Grid.Column width={4}>
-              <Form schema={liveValidateSchema} formData={liveValidate}><div>&nbsp;</div></Form>
+              <Form schema={liveValidateSchema} formData={liveValidate}>
+                <div>&nbsp;</div>
+              </Form>
             </Grid.Column>
           </Grid.Row>
         </Grid>

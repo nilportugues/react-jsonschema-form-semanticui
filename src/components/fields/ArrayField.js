@@ -181,10 +181,13 @@ function DefaultNormalArrayFieldTemplate(props) {
         />
       )}
 
-      <div
-        className="row array-item-list"
-        key={`array-item-list-${props.idSchema.$id}`}>
-        {props.items && props.items.map(p => DefaultArrayItem(p))}
+      {/* @todo: replace this for drag and drop */}
+      <div style={{ backgroundColor: "grey", padding: "4px" }}>
+        <div
+          className="row array-item-list"
+          key={`array-item-list-${props.idSchema.$id}`}>
+          {props.items && props.items.map(p => DefaultArrayItem(p))}
+        </div>
       </div>
 
       {props.canAdd && (
