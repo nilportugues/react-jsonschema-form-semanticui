@@ -52,14 +52,13 @@ function DefaultArrayItem(props) {
   };
   return (
     <Card
-      key={uuid4()}
       fluid
       raised={false}
       style={{
         boxShadow: "none",
         border: "1px solid rgba(34,36,38,.15)",
       }}>
-      <Card.Content key={uuid4()} style={{ padding: "6px" }}>
+      <Card.Content style={{ padding: "6px" }}>
         <Grid columns={16}>
           <Grid.Column width={props.hasToolbar ? 12 : 16} floated="left">
             <div>{props.children}</div>
@@ -71,7 +70,6 @@ function DefaultArrayItem(props) {
                 <Button.Group>
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <IconBtn
-                      key={uuid4()}
                       icon="arrow up"
                       className="array-item-move-up"
                       tabIndex="-1"
@@ -88,7 +86,6 @@ function DefaultArrayItem(props) {
 
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <IconBtn
-                      key={uuid4()}
                       icon="arrow down"
                       className="array-item-move-down"
                       tabIndex="-1"
@@ -105,7 +102,6 @@ function DefaultArrayItem(props) {
 
                   {props.hasRemove && (
                     <IconBtn
-                      key={uuid4()}
                       icon="remove"
                       className="array-item-remove"
                       tabIndex="-1"

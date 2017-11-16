@@ -27,6 +27,10 @@ function processValue({ type, items }, data) {
 }
 
 function getValue(data, multiple) {
+  if (multiple && data !== undefined && !(data.value instanceof Array)) {
+    return [data.value];
+  }
+
   return data.value;
 }
 
@@ -62,7 +66,6 @@ function SelectWidget(props) {
       options={dropdownOptions}
       multiple={multiple}
       defaultValue={value}
-      value={value}
       disabled={disabled}
       required={required}
       autofocus={autofocus}

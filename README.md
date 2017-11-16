@@ -1,4 +1,4 @@
-react-jsonschema-form-semantic-ui-semantic-ui
+react-jsonschema-form-semantic-ui
 =====================
 
 
@@ -18,7 +18,7 @@ A simple [React](http://facebook.github.io/react/) component capable of building
 
 A [live playground](https://nilportugues.github.io/react-jsonschema-form-semantic-ui/) is hosted on gh-pages.
 
-![](http://i.imgur.com/M8ZCES5.gif)
+![](docs/form1.png)
 
 ## Table of Contents
 
@@ -182,7 +182,7 @@ render((
 
 That should give something like this (if you took care of loading the standard [SemanticUI](http://react.semantic-ui.com/) stylesheet):
 
-![](http://i.imgur.com/DZQYPyu.png)
+![](docs/form2.png)
 
 ### Form initialization
 

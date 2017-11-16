@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Input } from "semantic-ui-react";
+import { v4 as uuid4 } from "uuid";
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
@@ -20,23 +21,24 @@ function BaseInput(props) {
   } = props;
 
   inputProps.type = options.inputType || inputProps.type || "text";
-  const _onChange = ({ target: { value } }) => {
-    return props.onChange(value === "" ? options.emptyValue : value);
-  };
 
   //Remove labels to make it look just like Bootstrap.
   inputProps.label = null;
 
+  const _onChange = ({ target: { value } }) => {
+    return props.onChange(value === "" ? options.emptyValue : value);
+  };
+
   return (
     <Input
-      readOnly={readonly}
+      focus={autofocus}
       disabled={disabled}
-      autoFocus={autofocus}
-      value={value == null ? "" : value}
+      readOnly={readonly}
+      value={value === null ? "" : value}
       {...inputProps}
       onChange={_onChange}
-      onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
-      onFocus={onFocus && (event => onFocus(inputProps.id, event.target.value))}
+      onBlur={onBlur && ((event, data) => onBlur(inputProps.id, data.value))}
+      onFocus={onFocus && ((event, data) => onFocus(inputProps.id, data.value))}
     />
   );
 }
