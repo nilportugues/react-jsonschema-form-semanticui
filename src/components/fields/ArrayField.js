@@ -250,6 +250,7 @@ class SortableComponent extends Component {
         });
     };
     render() {
+        return (<div>{this.props.items}</div>);
      //   this.setState({items: this.props.items});
         return <SortableList items={this.state.items} onSortEnd={this.onSortEnd} />;
     }
