@@ -27,7 +27,7 @@ function ColorWidget(props) {
     return props.onChange(color === "" ? options.emptyValue : color);
   };
 
-  return <SketchExample {...props} onChange={onChangeHandler} />;
+  return <SketchExample value={props.value} changeHandler={onChangeHandler} />;
 }
 
 class SketchExample extends React.Component {
@@ -55,8 +55,8 @@ class SketchExample extends React.Component {
   };
 
   handleChange = color => {
-    this.props.onChange(color);
     this.setState({ color: color.rgb });
+    this.props.changeHandler(color);
   };
 
   hexToRgbA = hex => {
@@ -75,7 +75,6 @@ class SketchExample extends React.Component {
         g: (c >> 8) & 255,
         b: c & 255,
         a: 1,
-        hex: hex,
       };
     }
 
@@ -84,7 +83,6 @@ class SketchExample extends React.Component {
       g: 0,
       b: 0,
       a: 1,
-      hex: "#000",
     };
   };
 
@@ -128,10 +126,14 @@ class SketchExample extends React.Component {
         <div style={styles.swatch} onClick={this.handleClick}>
           <div style={styles.color} />
         </div>
+
         {this.state.displayColorPicker ? (
           <div style={styles.popover}>
             <div style={styles.cover} onClick={this.handleClose} />
-            <SketchPicker onChange={this.handleChange} />
+            <SketchPicker
+              color={this.state.color}
+              onChange={this.handleChange}
+            />
           </div>
         ) : null}
       </div>
