@@ -45,94 +45,6 @@ const cmOptions = {
   indentWithTabs: false,
   tabSize: 2,
 };
-const themes = {
-  default: {
-    stylesheet:
-      "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
-  },
-  cerulean: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css",
-  },
-  cosmo: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cosmo/bootstrap.min.css",
-  },
-  cyborg: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cyborg/bootstrap.min.css",
-    editor: "blackboard",
-  },
-  darkly: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/darkly/bootstrap.min.css",
-    editor: "mbo",
-  },
-  flatly: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css",
-    editor: "ttcn",
-  },
-  journal: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/journal/bootstrap.min.css",
-  },
-  lumen: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/lumen/bootstrap.min.css",
-  },
-  paper: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/paper/bootstrap.min.css",
-  },
-  readable: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/readable/bootstrap.min.css",
-  },
-  sandstone: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/sandstone/bootstrap.min.css",
-    editor: "solarized",
-  },
-  simplex: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/simplex/bootstrap.min.css",
-    editor: "ttcn",
-  },
-  slate: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/slate/bootstrap.min.css",
-    editor: "monokai",
-  },
-  spacelab: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/spacelab/bootstrap.min.css",
-  },
-  "solarized-dark": {
-    stylesheet:
-      "//cdn.rawgit.com/aalpern/bootstrap-solarized/master/bootstrap-solarized-dark.css",
-    editor: "dracula",
-  },
-  "solarized-light": {
-    stylesheet:
-      "//cdn.rawgit.com/aalpern/bootstrap-solarized/master/bootstrap-solarized-light.css",
-    editor: "solarized",
-  },
-  superhero: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/superhero/bootstrap.min.css",
-    editor: "dracula",
-  },
-  united: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/united/bootstrap.min.css",
-  },
-  yeti: {
-    stylesheet:
-      "//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/yeti/bootstrap.min.css",
-    editor: "eclipse",
-  },
-};
 
 class GeoPosition extends Component {
   constructor(props) {
@@ -274,21 +186,6 @@ class Selector extends Component {
   }
 }
 
-function ThemeSelector({ theme, select }) {
-  const themeSchema = {
-    type: "string",
-    enum: Object.keys(themes),
-  };
-  return (
-    <Form
-      schema={themeSchema}
-      formData={theme}
-      onChange={({ formData }) => select(formData, themes[formData])}>
-      <div />
-    </Form>
-  );
-}
-
 class CopyLink extends Component {
   onCopyClick = event => {
     this.input.select();
@@ -401,7 +298,6 @@ class App extends Component {
       formData,
       liveValidate,
       validate,
-      theme,
       editor,
       ArrayFieldTemplate,
       ObjectFieldTemplate,
@@ -418,16 +314,10 @@ class App extends Component {
               <Selector onSelected={this.load} />
             </Grid.Column>
 
-            <Grid.Column width={2}>
-              <Form
-                schema={liveValidateSchema}
-                formData={liveValidate}
-                onChange={this.setLiveValidate}
-              />
-            </Grid.Column>
-
-            <Grid.Column width={2}>
-              <ThemeSelector theme={theme} select={this.onThemeSelected} />
+            <Grid.Column width={4}>
+              <Form schema={liveValidateSchema} formData={liveValidate}>
+                <div>&nbsp;</div>
+              </Form>
             </Grid.Column>
           </Grid.Row>
         </Grid>

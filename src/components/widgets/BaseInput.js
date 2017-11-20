@@ -20,23 +20,24 @@ function BaseInput(props) {
   } = props;
 
   inputProps.type = options.inputType || inputProps.type || "text";
-  const _onChange = ({ target: { value } }) => {
-    return props.onChange(value === "" ? options.emptyValue : value);
-  };
 
   //Remove labels to make it look just like Bootstrap.
   inputProps.label = null;
 
+  const _onChange = ({ target: { value } }) => {
+    return props.onChange(value === "" ? options.emptyValue : value);
+  };
+
   return (
     <Input
-      readOnly={readonly}
+      focus={autofocus}
       disabled={disabled}
-      autoFocus={autofocus}
-      value={value == null ? "" : value}
+      readOnly={readonly}
+      value={value === null ? "" : value}
       {...inputProps}
       onChange={_onChange}
-      onBlur={onBlur && (event => onBlur(inputProps.id, event.target.value))}
-      onFocus={onFocus && (event => onFocus(inputProps.id, event.target.value))}
+      onBlur={onBlur && ((event, data) => onBlur(inputProps.id, data.value))}
+      onFocus={onFocus && ((event, data) => onFocus(inputProps.id, data.value))}
     />
   );
 }

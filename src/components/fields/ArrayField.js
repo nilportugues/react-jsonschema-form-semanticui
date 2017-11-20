@@ -45,6 +45,14 @@ function IconBtn(props) {
   );
 }
 
+const sharedStyle = {
+  backgroundColor: "rgba(0,0,0,0.04)",
+  padding: "4px",
+  paddingBottom: "1px",
+  borderRadius: "4px",
+  overflow: "auto",
+};
+
 // Used in the two templates
 function DefaultArrayItem(props) {
   const btnStyle = {
@@ -52,14 +60,15 @@ function DefaultArrayItem(props) {
   };
   return (
     <Card
-      key={uuid4()}
       fluid
       raised={false}
       style={{
         boxShadow: "none",
-        border: "1px solid rgba(34,36,38,.15)",
+        border: "1px solid rgba(0,0,0,.015)",
+        margin: "0",
+        marginBottom: "4px",
       }}>
-      <Card.Content key={uuid4()} style={{ padding: "6px" }}>
+      <Card.Content style={{ padding: "12px" }}>
         <Grid columns={16}>
           <Grid.Column width={props.hasToolbar ? 12 : 16} floated="left">
             <div>{props.children}</div>
@@ -71,7 +80,6 @@ function DefaultArrayItem(props) {
                 <Button.Group>
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <IconBtn
-                      key={uuid4()}
                       icon="arrow up"
                       className="array-item-move-up"
                       tabIndex="-1"
@@ -88,7 +96,6 @@ function DefaultArrayItem(props) {
 
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <IconBtn
-                      key={uuid4()}
                       icon="arrow down"
                       className="array-item-move-down"
                       tabIndex="-1"
@@ -105,7 +112,6 @@ function DefaultArrayItem(props) {
 
                   {props.hasRemove && (
                     <IconBtn
-                      key={uuid4()}
                       icon="remove"
                       className="array-item-remove"
                       tabIndex="-1"
@@ -143,57 +149,68 @@ function DefaultFixedArrayFieldTemplate(props) {
         </div>
       )}
 
-      <div
-        className="row array-item-list"
-        key={`array-item-list-${props.idSchema.$id}`}>
-        {props.items && props.items.map(DefaultArrayItem)}
-      </div>
+      <div style={sharedStyle}>
+        <div
+          className="row array-item-list"
+          key={`array-item-list-${props.idSchema.$id}`}>
+          {props.items && props.items.map(DefaultArrayItem)}
+        </div>
 
-      {props.canAdd && (
-        <AddButton
-          onClick={props.onAddClick}
-          disabled={props.disabled || props.readonly}
-        />
-      )}
+        {props.canAdd && (
+          <div style={{ position: "relative", float: "right" }}>
+            <AddButton
+              onClick={props.onAddClick}
+              disabled={props.disabled || props.readonly}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 function DefaultNormalArrayFieldTemplate(props) {
   return (
-    <div className={props.className}>
-      <ArrayFieldTitle
-        key={`array-field-title-${props.idSchema.$id}`}
-        TitleField={props.TitleField}
-        idSchema={props.idSchema}
-        title={props.uiSchema["ui:title"] || props.title}
-        required={props.required}
-      />
-
-      {(props.uiSchema["ui:description"] || props.schema.description) && (
-        <ArrayFieldDescription
-          key={`array-field-description-${props.idSchema.$id}`}
-          DescriptionField={props.DescriptionField}
+    <div className="sortable-form-fields">
+      <div className={props.className}>
+        <ArrayFieldTitle
+          key={`array-field-title-${props.idSchema.$id}`}
+          TitleField={props.TitleField}
           idSchema={props.idSchema}
-          description={
-            props.uiSchema["ui:description"] || props.schema.description
-          }
+          title={props.uiSchema["ui:title"] || props.title}
+          required={props.required}
         />
-      )}
 
-      <div
-        className="row array-item-list"
-        key={`array-item-list-${props.idSchema.$id}`}>
-        {props.items && props.items.map(p => DefaultArrayItem(p))}
+        {(props.uiSchema["ui:description"] || props.schema.description) && (
+          <ArrayFieldDescription
+            key={`array-field-description-${props.idSchema.$id}`}
+            DescriptionField={props.DescriptionField}
+            idSchema={props.idSchema}
+            description={
+              props.uiSchema["ui:description"] || props.schema.description
+            }
+          />
+        )}
+
+        <div style={sharedStyle}>
+          {/* @todo: replace this for drag and drop */}
+          <div
+            className="row array-item-list"
+            key={`array-item-list-${props.idSchema.$id}`}>
+            {props.items && props.items.map(p => DefaultArrayItem(p))}
+          </div>
+
+          {props.canAdd && (
+            <div style={{ position: "relative", float: "right" }}>
+              <AddButton
+                key={uuid4()}
+                onClick={props.onAddClick}
+                disabled={props.disabled || props.readonly}
+              />
+            </div>
+          )}
+        </div>
       </div>
-
-      {props.canAdd && (
-        <AddButton
-          key={uuid4()}
-          onClick={props.onAddClick}
-          disabled={props.disabled || props.readonly}
-        />
-      )}
     </div>
   );
 }

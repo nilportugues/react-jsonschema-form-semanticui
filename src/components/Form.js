@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Form as FormSematicUI } from "semantic-ui-react";
+import { Button, Form as FormSematicUI } from "semantic-ui-react";
 
 import { default as DefaultErrorList } from "./ErrorList";
 import {
@@ -178,7 +178,6 @@ export default class Form extends Component {
     const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
     const registry = this.getRegistry();
     const _SchemaField = registry.fields.SchemaField;
-
     return (
       <FormSematicUI
         id={id}
@@ -207,11 +206,9 @@ export default class Form extends Component {
         {children ? (
           children
         ) : (
-          <p>
-            <button type="submit" className="btn btn-info">
-              Submit
-            </button>
-          </p>
+          <Button primary type="submit">
+            Submit
+          </Button>
         )}
       </FormSematicUI>
     );

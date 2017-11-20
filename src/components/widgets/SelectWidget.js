@@ -1,38 +1,37 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import { asNumber } from "../../utils";
-
 /**
  * This is a silly limitation in the DOM where option change event values are
  * always retrieved as strings.
  */
-function processValue({ type, items }, value) {
-  if (value === "") {
+import React from "react";
+import PropTypes from "prop-types";
+
+import { asNumber } from "../../utils";
+import { Dropdown } from "semantic-ui-react";
+import { v4 as uuid4 } from "uuid";
+
+function processValue({ type, items }, data) {
+  if (data === "") {
     return undefined;
   } else if (
     type === "array" &&
     items &&
     ["number", "integer"].includes(items.type)
   ) {
-    return value.map(asNumber);
+    return data.map(asNumber);
   } else if (type === "boolean") {
-    return value === "true";
+    return data === "true";
   } else if (type === "number") {
-    return asNumber(value);
+    return asNumber(data);
   }
-  return value;
+  return data;
 }
 
-function getValue(event, multiple) {
-  if (multiple) {
-    return [].slice
-      .call(event.target.options)
-      .filter(o => o.selected)
-      .map(o => o.value);
-  } else {
-    return event.target.value;
+function getValue(data, multiple) {
+  if (multiple && data !== undefined && !(data.value instanceof Array)) {
+    return [data.value];
   }
+
+  return data.value;
 }
 
 function SelectWidget(props) {
@@ -51,46 +50,49 @@ function SelectWidget(props) {
     onFocus,
     placeholder,
   } = props;
-  const { enumOptions, enumDisabled } = options;
-  const emptyValue = multiple ? [] : "";
+  const { enumOptions } = options;
+  const dropdownOptions = [];
+
+  enumOptions.map(({ value, label }, i) => {
+    dropdownOptions.push({ key: i, value: value, text: label });
+  });
+
   return (
-    <select
-      id={id}
+    <Dropdown
+      key={uuid4()}
+      search
+      selection
+      placeholder={placeholder}
+      options={dropdownOptions}
       multiple={multiple}
-      className="form-control"
-      value={typeof value === "undefined" ? emptyValue : value}
+      defaultValue={value}
+      disabled={disabled}
       required={required}
-      disabled={disabled || readonly}
-      autoFocus={autofocus}
+      autofocus={autofocus}
+      readonly={readonly}
       onBlur={
         onBlur &&
-        (event => {
-          const newValue = getValue(event, multiple);
+        ((event, self) => {
+          const newValue = getValue(self, multiple);
           onBlur(id, processValue(schema, newValue));
         })
       }
       onFocus={
         onFocus &&
-        (event => {
-          const newValue = getValue(event, multiple);
+        ((event, self) => {
+          const newValue = getValue(self, multiple);
           onFocus(id, processValue(schema, newValue));
         })
       }
-      onChange={event => {
-        const newValue = getValue(event, multiple);
+      onChange={(event, self) => {
+        const newValue = getValue(self, multiple);
         onChange(processValue(schema, newValue));
-      }}>
-      {!multiple && !schema.default && <option value="">{placeholder}</option>}
-
-      {enumOptions.map(({ value, label }, i) => {
-        const disabled = enumDisabled && enumDisabled.indexOf(value) != -1;
-        return (
-          <option key={i} value={value} disabled={disabled}>
-            {label}
-          </option>
-        );
-      })}
-    </select>
+      }}
+      onLabelClick={(event, self) => {
+        const newValue = getValue(self, multiple);
+        onChange(processValue(schema, newValue));
+      }}
+    />
   );
 }
 

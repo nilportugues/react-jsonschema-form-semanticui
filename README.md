@@ -1,16 +1,24 @@
 react-jsonschema-form-semantic-ui
 =====================
 
-Drag and drop order lists https://github.com/atlassian/react-beautiful-dnd/blob/master/README.md
+
+## Additions (WIP):
+
+These libraries will be added to support features not provided by SemanticUI.
+ 
+- Atlassian's Drag & Drop Ordering: https://github.com/atlassian/react-beautiful-dnd
+- AirBnB's Date Pickers: https://github.com/airbnb/react-dates
+- Felix Rieseberg's File Upload: https://github.com/felixrieseberg/React-Dropzone-Component
+
 ---
 
-[![Build Status](https://travis-ci.org/mozilla-services/react-jsonschema-form.svg)](https://travis-ci.org/mozilla-services/react-jsonschema-form)
+[![Build Status](https://travis-ci.org/nilportugues/react-jsonschema-form-semantic-ui.svg)](https://travis-ci.org/nilportugues/react-jsonschema-form-semantic-ui)
 
-A simple [React](http://facebook.github.io/react/) component capable of building HTML forms out of a [JSON schema](http://jsonschema.net/) and using [Bootstrap](http://getbootstrap.com/) semantics by default.
+A simple [React](http://facebook.github.io/react/) component capable of building HTML forms out of a [JSON schema](http://jsonschema.net/) and using [SemanticUI](http://react.semantic-ui.com/) semantics by default.
 
-A [live playground](https://mozilla-services.github.io/react-jsonschema-form/) is hosted on gh-pages.
+A [live playground](https://nilportugues.github.io/react-jsonschema-form-semantic-ui/) is hosted on gh-pages.
 
-![](http://i.imgur.com/M8ZCES5.gif)
+![](docs/form1.png)
 
 ## Table of Contents
 
@@ -99,22 +107,21 @@ A [live playground](https://mozilla-services.github.io/react-jsonschema-form/) i
      - [Development server](#development-server)
      - [Tests](#tests)
         - [TDD](#tdd)
-  - [FAQ](#faq)
   - [License](#license)
 
 ---
 
 ## Philosophy
 
-react-jsonschema-form is meant to automatically generate a React form based on a [JSON Schema](http://json-schema.org/). It is a major component in the [kinto-admin](https://github.com/Kinto/kinto-admin/). If you want to generate a form for any data, sight unseen, simply given a JSON schema, react-jsonschema-form may be for you. If you have a priori knowledge of your data and want a toolkit for generating forms for it, you might look elsewhere.
+react-jsonschema-form-semantic-ui is meant to automatically generate a React form based on a [JSON Schema](http://json-schema.org/). It is a major component in the [kinto-admin](https://github.com/Kinto/kinto-admin/). If you want to generate a form for any data, sight unseen, simply given a JSON schema, react-jsonschema-form-semantic-ui may be for you. If you have a priori knowledge of your data and want a toolkit for generating forms for it, you might look elsewhere.
 
-react-jsonschema-form validates that the data conforms to the given schema, but doesn't prevent the user from inputing data that doesn't fit (for example, stripping non-numbers from a number field, or not letting the user add values to an array that is already "full".
+react-jsonschema-form-semantic-ui validates that the data conforms to the given schema, but doesn't prevent the user from inputing data that doesn't fit (for example, stripping non-numbers from a number field, or not letting the user add values to an array that is already "full".
 
 ## Installation
 
 Requires React 15.0.0+.
 
-> Note: The `master` branch of the repository reflects ongoing development. Releases are published as [tags](https://github.com/mozilla-services/react-jsonschema-form/releases).
+> Note: The `master` branch of the repository reflects ongoing development. Releases are published as [tags](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/releases).
 >
 > You should never blindly install from `master`, but rather check what the available stable releases are.
 
@@ -122,18 +129,18 @@ Requires React 15.0.0+.
 ### As a npm-based project dependency
 
 ```
-$ npm install react-jsonschema-form --save
+$ npm install react-jsonschema-form-semantic-ui --save
 ```
 
-> Note: While the library renders [Bootstrap](http://getbootstrap.com/) HTML semantics, you have to build/load the Bootstrap styles on your own.
+> Note: While the library renders [SemanticUI](http://react.semantic-ui.com/) HTML semantics, you have to build/load the SemanticUI styles on your own.
 
 ### As a script served from a CDN
 
 ```html
-  <script src="https://unpkg.com/react-jsonschema-form/dist/react-jsonschema-form.js"></script>
+  <script src="https://unpkg.com/react-jsonschema-form-semantic-ui/dist/react-jsonschema-form-semantic-ui.js"></script>
 ```
 
-Source maps are available at [this url](https://unpkg.com/react-jsonschema-form/dist/react-jsonschema-form.js.map).
+Source maps are available at [this url](https://unpkg.com/react-jsonschema-form-semantic-ui/dist/react-jsonschema-form-semantic-ui.js.map).
 
 > Note: The CDN version **does not** embed *react* nor *react-dom*.
 >
@@ -151,7 +158,7 @@ const {default: Form} = JSONSchemaForm;
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-import Form from "react-jsonschema-form";
+import Form from "react-jsonschema-form-semantic-ui";
 
 const schema = {
   title: "Todo",
@@ -173,9 +180,9 @@ render((
 ), document.getElementById("app"));
 ```
 
-That should give something like this (if you took care of loading the standard [Bootstrap](http://getbootstrap.com/) stylesheet):
+That should give something like this (if you took care of loading the standard [SemanticUI](http://react.semantic-ui.com/) stylesheet):
 
-![](http://i.imgur.com/DZQYPyu.png)
+![](docs/form2.png)
 
 ### Form initialization
 
@@ -474,7 +481,7 @@ const uiSchema = {
 
 #### `orderable` option
 
-Array items are orderable by default, and react-jsonschema-form renders move up/down buttons alongside them. The `uiSchema` object spec allows you to disable ordering:
+Array items are orderable by default, and react-jsonschema-form-semantic-ui renders move up/down buttons alongside them. The `uiSchema` object spec allows you to disable ordering:
 
 ```jsx
 const schema = {
@@ -675,6 +682,18 @@ render((
 
 **Warning:** there should be a button or an input with `type="submit"` to trigger the form submission (and then the form validation).
 
+### No Submit Form button
+
+Sometimes you want no Submit button. The best way to achieve this is as follows:
+
+```jsx
+render((
+  <Form schema={schema}>
+    <div></div>
+  </Form>
+), document.getElementById("app"));
+```
+
 ### Help texts
 
 Sometimes it's convenient to add some text next to a field to guide the end user filling it; this is the purpose of the `ui:help` uiSchema directive:
@@ -840,7 +859,7 @@ If you want to handle the rendering of each element yourself, you can use the pr
 The following props are passed to a custom field template component:
 
 - `id`: The id of the field in the hierarchy. You can use it to render a label targeting the wrapped widget.
-- `classNames`: A string containing the base bootstrap CSS classes merged with any [custom ones](#custom-css-class-names) defined in your uiSchema.
+- `classNames`: A string containing the base SemanticUI CSS classes merged with any [custom ones](#custom-css-class-names) defined in your uiSchema.
 - `label`: The computed label for this field, as a string.
 - `description`: A component instance rendering the field description, if any defined (this will use any [custom `DescriptionField`](#custom-descriptions) defined).
 - `rawDescription`: A string containing any `ui:description` uiSchema directive defined.
@@ -882,7 +901,7 @@ render((
 ), document.getElementById("app"));
 ```
 
-Please see [customArray.js](https://github.com/mozilla-services/react-jsonschema-form/blob/master/playground/samples/customArray.js) for a better example.
+Please see [customArray.js](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/blob/master/playground/samples/customArray.js) for a better example.
 
 The following props are passed to each `ArrayFieldTemplate`:
 
@@ -938,7 +957,7 @@ render((
 ), document.getElementById("app"));
 ```
 
-Please see [customObject.js](https://github.com/mozilla-services/react-jsonschema-form/blob/master/playground/samples/customObject.js) for a better example.
+Please see [customObject.js](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/blob/master/playground/samples/customObject.js) for a better example.
 
 The following props are passed to each `ObjectFieldTemplate`:
 
@@ -1223,7 +1242,7 @@ You can provide a `formContext` object to the Form, which is passed down to all 
 
 ### Custom array field buttons
 
-The `ArrayField` component provides a UI to add, remove and reorder array items, and these buttons use [Bootstrap glyphicons](http://getbootstrap.com/components/#glyphicons). If you don't use glyphicons but still want to provide your own icons or texts for these buttons, you can easily do so using CSS:
+The `ArrayField` component provides a UI to add, remove and reorder array items, and these buttons use [SemanticUI glyphicons](http://react.semantic-ui.com/components/#glyphicons). If you don't use glyphicons but still want to provide your own icons or texts for these buttons, you can easily do so using CSS:
 
 ```css
 i.glyphicon { display: none; }
@@ -1243,7 +1262,7 @@ You can provide your own implementation of the `SchemaField` base React componen
 To proceed so, pass a `fields` object having a `SchemaField` property to your `Form` component; here's a rather silly example wrapping the standard `SchemaField` lib component:
 
 ```jsx
-import SchemaField from "react-jsonschema-form/lib/components/fields/SchemaField";
+import SchemaField from "react-jsonschema-form-semantic-ui/lib/components/fields/SchemaField";
 
 const CustomSchemaField = function(props) {
   return (
@@ -1464,13 +1483,13 @@ If you want to have the field set to a default value when empty you can provide 
 
 ## Styling your forms
 
-This library renders form fields and widgets leveraging the [Bootstrap](http://getbootstrap.com/) semantics. That means your forms will be beautiful by default if you're loading its stylesheet in your page.
+This library renders form fields and widgets leveraging the [SemanticUI](http://react.semantic-ui.com/) semantics. That means your forms will be beautiful by default if you're loading its stylesheet in your page.
 
-You're not necessarily forced to use Bootstrap; while it uses its semantics, it also provides a bunch of other class names so you can bring new styles or override default ones quite easily in your own personalized stylesheet. That's just HTML after all :)
+You're not necessarily forced to use SemanticUI; while it uses its semantics, it also provides a bunch of other class names so you can bring new styles or override default ones quite easily in your own personalized stylesheet. That's just HTML after all :)
 
-If you're okay with using styles from the Bootstrap ecosystem though, then the good news is that you have access to many themes for it, which are compatible with our generated forms!
+If you're okay with using styles from the SemanticUI ecosystem though, then the good news is that you have access to many themes for it, which are compatible with our generated forms!
 
-Here are some examples from the [playground](http://mozilla-services.github.io/react-jsonschema-form/), using some of the [Bootswatch](http://bootswatch.com/) free themes:
+Here are some examples from the [playground](http://nilportugues.github.io/react-jsonschema-form-semantic-ui/), using some of the [Bootswatch](http://bootswatch.com/) free themes:
 
 ![](http://i.imgur.com/1Z5oUK3.png)
 ![](http://i.imgur.com/IMFqMwK.png)
@@ -1742,16 +1761,6 @@ $ npm run dist
 $ npm publish
 $ git push --tags origin
 ```
-
-## FAQ
-
-### Q: Does rjsf support `oneOf`, `anyOf`, multiple types in an array, etc.?
-
-A: Not yet (except for a special case where you can use `oneOf` in [schema dependencies](#schema-dependencies)), but perhaps you will be the person whose PR will finally add the feature in a way that gets merged. For inspiration, see [#329](https://github.com/mozilla-services/react-jsonschema-form/pull/329) or [#417](https://github.com/mozilla-services/react-jsonschema-form/pull/417). See also: [#52](https://github.com/mozilla-services/react-jsonschema-form/issues/52), [#151](https://github.com/mozilla-services/react-jsonschema-form/issues/151), [#171](https://github.com/mozilla-services/react-jsonschema-form/issues/171), [#200](https://github.com/mozilla-services/react-jsonschema-form/issues/200), [#282](https://github.com/mozilla-services/react-jsonschema-form/issues/282), [#302](https://github.com/mozilla-services/react-jsonschema-form/pull/302), [#330](https://github.com/mozilla-services/react-jsonschema-form/issues/330), [#430](https://github.com/mozilla-services/react-jsonschema-form/issues/430), [#522](https://github.com/mozilla-services/react-jsonschema-form/issues/522), [#538](https://github.com/mozilla-services/react-jsonschema-form/issues/538), [#551](https://github.com/mozilla-services/react-jsonschema-form/issues/551), [#552](https://github.com/mozilla-services/react-jsonschema-form/issues/552), or [#648](https://github.com/mozilla-services/react-jsonschema-form/issues/648).
-
-### Q: Will react-jsonschema-form support Material, Ant-Design, Foundation, or [some other specific widget library or frontend style]?
-
-A: Probably not. We use Bootstrap v3 and it works fine for our needs. We would like for react-jsonschema-form to support other frameworks, we just don't want to support them ourselves. Ideally, these frontend styles could be added to react-jsonschema-form with a third-party library. If there is a technical limitation preventing this, please consider opening a PR. See also: [#91](https://github.com/mozilla-services/react-jsonschema-form/issues/91), [#99](https://github.com/mozilla-services/react-jsonschema-form/issues/99), [#125](https://github.com/mozilla-services/react-jsonschema-form/issues/125), [#237](https://github.com/mozilla-services/react-jsonschema-form/issues/237), [#287](https://github.com/mozilla-services/react-jsonschema-form/issues/287), [#299](https://github.com/mozilla-services/react-jsonschema-form/issues/299), [#440](https://github.com/mozilla-services/react-jsonschema-form/issues/440), [#461](https://github.com/mozilla-services/react-jsonschema-form/issues/461), [#546](https://github.com/mozilla-services/react-jsonschema-form/issues/546), [#555](https://github.com/mozilla-services/react-jsonschema-form/issues/555), [#626](https://github.com/mozilla-services/react-jsonschema-form/issues/626), and [#623](https://github.com/mozilla-services/react-jsonschema-form/pull/623).
 
 ## License
 
