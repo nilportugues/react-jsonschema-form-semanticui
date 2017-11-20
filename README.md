@@ -10,9 +10,9 @@ These libraries will be added to support features not provided by SemanticUI.
 - [x] casesandberg's React Color Picker: https://github.com/casesandberg/react-color
 
 ### Pending
-- [] AirBnB's Date Pickers: https://github.com/airbnb/react-dates
-- [] Felix Rieseberg's File Upload: https://github.com/felixrieseberg/React-Dropzone-Component
-- [] Atlassian's Drag & Drop Ordering: https://github.com/atlassian/react-beautiful-dnd
+- [ ] AirBnB's Date Pickers: https://github.com/airbnb/react-dates
+- [ ] Felix Rieseberg's File Upload: https://github.com/felixrieseberg/React-Dropzone-Component
+- [ ] Atlassian's Drag & Drop Ordering: https://github.com/atlassian/react-beautiful-dnd
 
 ---
 
