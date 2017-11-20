@@ -4,7 +4,7 @@ react-jsonschema-form-semantic-ui
 
 ## Additions (WIP):
 
-These libraries will be added to support features not provided by SemanticUI.
+These libraries will be added to support features not provided by SemanticUI nor the original react-jsonschema-form code.
 
 ### Added
 - [x] casesandberg's React Color Picker: https://github.com/casesandberg/react-color
@@ -117,7 +117,9 @@ A [live playground](https://nilportugues.github.io/react-jsonschema-form-semanti
 
 ## Philosophy
 
-react-jsonschema-form-semantic-ui is meant to automatically generate a React form based on a [JSON Schema](http://json-schema.org/). It is a major component in the [kinto-admin](https://github.com/Kinto/kinto-admin/). If you want to generate a form for any data, sight unseen, simply given a JSON schema, react-jsonschema-form-semantic-ui may be for you. If you have a priori knowledge of your data and want a toolkit for generating forms for it, you might look elsewhere.
+react-jsonschema-form-semantic-ui is meant to automatically generate a React form based on a [JSON Schema](http://json-schema.org/). 
+
+If you want to generate a form for any data, sight unseen, simply given a JSON schema, react-jsonschema-form-semantic-ui may be for you. If you have a priori knowledge of your data and want a toolkit for generating forms for it, you might look elsewhere.
 
 react-jsonschema-form-semantic-ui validates that the data conforms to the given schema, but doesn't prevent the user from inputing data that doesn't fit (for example, stripping non-numbers from a number field, or not letting the user add values to an array that is already "full".
 
