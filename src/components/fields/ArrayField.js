@@ -50,7 +50,6 @@ const sharedStyle = {
   padding: "4px",
   paddingBottom: "1px",
   borderRadius: "4px",
-  overflow: "auto",
 };
 
 // Used in the two templates
