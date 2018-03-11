@@ -11,7 +11,7 @@ These libraries will be added to support features not provided by SemanticUI nor
 
 ### Pending
 - [ ] AirBnB's Date Pickers: https://github.com/airbnb/react-dates
-- [ ] Felix Rieseberg's File Upload: https://github.com/felixrieseberg/React-Dropzone-Component
+- [ ] Uppy file upload https://github.com/transloadit/uppy/blob/master/README.md
 - [ ] Atlassian's Drag & Drop Ordering: https://github.com/atlassian/react-beautiful-dnd
 
 ---
