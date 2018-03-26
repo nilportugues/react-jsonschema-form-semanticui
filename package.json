@@ -75,7 +75,7 @@
     "estraverse-fb": "1.3.2",
     "express": "4.16.2",
     "extract-text-webpack-plugin": "1.0.1",
-    "gh-pages": "0.11.0",
+    "gh-pages": "0.12.0",
     "html": "0.0.10",
     "husky": "0.13.4",
     "jsdom": "8.5.0",
