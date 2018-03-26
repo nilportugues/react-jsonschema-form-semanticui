@@ -62,7 +62,7 @@
     "babel-preset-react": "6.24.1",
     "babel-register": "6.26.0",
     "chai": "3.5.0",
-    "codemirror": "5.31.0",
+    "codemirror": "5.36.0",
     "cross-env": "2.0.1",
     "css-loader": "0.23.1",
     "eslint": "4.11.0",
