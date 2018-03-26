@@ -109,7 +109,12 @@
   "keywords": [
     "react",
     "form",
-    "json-schema"
+    "json-schema",
+    "jsonschema",
+    "semantic-ui",
+    "semantic",
+    "css",
+    "styles"
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/nilportugues/react-jsonschema-form-semanticui#readme"
