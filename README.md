@@ -1,6 +1,12 @@
 react-jsonschema-form-semantic-ui
 =====================
 
+## Installation
+
+```
+npm install react-jsonschema-form-semanticui
+```
+
 
 ## Additions (WIP):
 

@@ -1,5 +1,5 @@
 {
-  "name": "react-jsonschema-form-semanticui-semanticui",
+  "name": "react-jsonschema-form-semanticui",
   "version": "1.0.0",
   "description": "A simple React component capable of building HTML forms out of a JSON schema using React Semantic UI.",
   "scripts": {
@@ -105,7 +105,7 @@
     "type": "git",
     "url": "git+https://github.com/nilportugues/react-jsonschema-form-semanticui.git"
   },
-  "author": "Nicolas Perriault <nperriault@mozilla.com>",
+  "author": "Nil Portugués Calderó <contact@nilportugues.com>",
   "keywords": [
     "react",
     "form",
