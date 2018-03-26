@@ -45,7 +45,7 @@
     "react-beautiful-dnd": "^2.6.1",
     "react-color": "^2.13.8",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.76.0",
+    "semantic-ui-react": "^0.79.0",
     "setimmediate": "^1.0.5",
     "uuid": "^3.1.0"
   },
