@@ -89,7 +89,7 @@
     "react-dom": "15.6.2",
     "react-transform-catch-errors": "1.0.2",
     "react-transform-hmr": "1.0.4",
-    "redbox-react": "1.5.0",
+    "redbox-react": "1.6.0",
     "rimraf": "2.6.2",
     "sinon": "1.17.7",
     "style-loader": "0.20.3",
