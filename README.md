@@ -1,4 +1,4 @@
-react-jsonschema-form-semantic-ui
+react-jsonschema-form-semanticui
 =====================
 
 ## Installation
@@ -22,11 +22,11 @@ These libraries will be added to support features not provided by SemanticUI nor
 
 ---
 
-[![Build Status](https://travis-ci.org/nilportugues/react-jsonschema-form-semantic-ui.svg)](https://travis-ci.org/nilportugues/react-jsonschema-form-semantic-ui)
+[![Build Status](https://travis-ci.org/nilportugues/react-jsonschema-form-semanticui.svg)](https://travis-ci.org/nilportugues/react-jsonschema-form-semanticui)
 
 A simple [React](http://facebook.github.io/react/) component capable of building HTML forms out of a [JSON schema](http://jsonschema.net/) and using [SemanticUI](http://react.semantic-ui.com/) semantics by default.
 
-A [live playground](https://nilportugues.github.io/react-jsonschema-form-semantic-ui/) is hosted on gh-pages.
+A [live playground](https://nilportugues.github.io/react-jsonschema-form-semanticui/) is hosted on gh-pages.
 
 ![](docs/form1.png)
 
@@ -123,17 +123,17 @@ A [live playground](https://nilportugues.github.io/react-jsonschema-form-semanti
 
 ## Philosophy
 
-react-jsonschema-form-semantic-ui is meant to automatically generate a React form based on a [JSON Schema](http://json-schema.org/). 
+react-jsonschema-form-semanticui is meant to automatically generate a React form based on a [JSON Schema](http://json-schema.org/). 
 
-If you want to generate a form for any data, sight unseen, simply given a JSON schema, react-jsonschema-form-semantic-ui may be for you. If you have a priori knowledge of your data and want a toolkit for generating forms for it, you might look elsewhere.
+If you want to generate a form for any data, sight unseen, simply given a JSON schema, react-jsonschema-form-semanticui may be for you. If you have a priori knowledge of your data and want a toolkit for generating forms for it, you might look elsewhere.
 
-react-jsonschema-form-semantic-ui validates that the data conforms to the given schema, but doesn't prevent the user from inputing data that doesn't fit (for example, stripping non-numbers from a number field, or not letting the user add values to an array that is already "full".
+react-jsonschema-form-semanticui validates that the data conforms to the given schema, but doesn't prevent the user from inputing data that doesn't fit (for example, stripping non-numbers from a number field, or not letting the user add values to an array that is already "full".
 
 ## Installation
 
 Requires React 15.0.0+.
 
-> Note: The `master` branch of the repository reflects ongoing development. Releases are published as [tags](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/releases).
+> Note: The `master` branch of the repository reflects ongoing development. Releases are published as [tags](https://github.com/nilportugues/react-jsonschema-form-semanticui/releases).
 >
 > You should never blindly install from `master`, but rather check what the available stable releases are.
 
@@ -141,7 +141,7 @@ Requires React 15.0.0+.
 ### As a npm-based project dependency
 
 ```
-$ npm install react-jsonschema-form-semantic-ui --save
+$ npm install react-jsonschema-form-semanticui --save
 ```
 
 > Note: While the library renders [SemanticUI](http://react.semantic-ui.com/) HTML semantics, you have to build/load the SemanticUI styles on your own.
@@ -149,10 +149,10 @@ $ npm install react-jsonschema-form-semantic-ui --save
 ### As a script served from a CDN
 
 ```html
-  <script src="https://unpkg.com/react-jsonschema-form-semantic-ui/dist/react-jsonschema-form-semantic-ui.js"></script>
+  <script src="https://unpkg.com/react-jsonschema-form-semanticui/dist/react-jsonschema-form-semanticui.js"></script>
 ```
 
-Source maps are available at [this url](https://unpkg.com/react-jsonschema-form-semantic-ui/dist/react-jsonschema-form-semantic-ui.js.map).
+Source maps are available at [this url](https://unpkg.com/react-jsonschema-form-semanticui/dist/react-jsonschema-form-semanticui.js.map).
 
 > Note: The CDN version **does not** embed *react* nor *react-dom*.
 >
@@ -170,7 +170,7 @@ const {default: Form} = JSONSchemaForm;
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-import Form from "react-jsonschema-form-semantic-ui";
+import Form from "react-jsonschema-form-semanticui";
 
 const schema = {
   title: "Todo",
@@ -493,7 +493,7 @@ const uiSchema = {
 
 #### `orderable` option
 
-Array items are orderable by default, and react-jsonschema-form-semantic-ui renders move up/down buttons alongside them. The `uiSchema` object spec allows you to disable ordering:
+Array items are orderable by default, and react-jsonschema-form-semanticui renders move up/down buttons alongside them. The `uiSchema` object spec allows you to disable ordering:
 
 ```jsx
 const schema = {
@@ -913,7 +913,7 @@ render((
 ), document.getElementById("app"));
 ```
 
-Please see [customArray.js](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/blob/master/playground/samples/customArray.js) for a better example.
+Please see [customArray.js](https://github.com/nilportugues/react-jsonschema-form-semanticui/blob/master/playground/samples/customArray.js) for a better example.
 
 The following props are passed to each `ArrayFieldTemplate`:
 
@@ -969,7 +969,7 @@ render((
 ), document.getElementById("app"));
 ```
 
-Please see [customObject.js](https://github.com/nilportugues/react-jsonschema-form-semantic-ui/blob/master/playground/samples/customObject.js) for a better example.
+Please see [customObject.js](https://github.com/nilportugues/react-jsonschema-form-semanticui/blob/master/playground/samples/customObject.js) for a better example.
 
 The following props are passed to each `ObjectFieldTemplate`:
 
@@ -1274,7 +1274,7 @@ You can provide your own implementation of the `SchemaField` base React componen
 To proceed so, pass a `fields` object having a `SchemaField` property to your `Form` component; here's a rather silly example wrapping the standard `SchemaField` lib component:
 
 ```jsx
-import SchemaField from "react-jsonschema-form-semantic-ui/lib/components/fields/SchemaField";
+import SchemaField from "react-jsonschema-form-semanticui/lib/components/fields/SchemaField";
 
 const CustomSchemaField = function(props) {
   return (
@@ -1501,7 +1501,7 @@ You're not necessarily forced to use SemanticUI; while it uses its semantics, it
 
 If you're okay with using styles from the SemanticUI ecosystem though, then the good news is that you have access to many themes for it, which are compatible with our generated forms!
 
-Here are some examples from the [playground](http://nilportugues.github.io/react-jsonschema-form-semantic-ui/), using some of the [Bootswatch](http://bootswatch.com/) free themes:
+Here are some examples from the [playground](http://nilportugues.github.io/react-jsonschema-form-semanticui/), using some of the [Bootswatch](http://bootswatch.com/) free themes:
 
 ![](http://i.imgur.com/1Z5oUK3.png)
 ![](http://i.imgur.com/IMFqMwK.png)

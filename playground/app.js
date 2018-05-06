@@ -282,7 +282,9 @@ class App extends Component {
 
   onShare = () => {
     const { formData, schema, uiSchema } = this.state;
-    const { location: { origin, pathname } } = document;
+    const {
+      location: { origin, pathname },
+    } = document;
     try {
       const hash = btoa(JSON.stringify({ formData, schema, uiSchema }));
       this.setState({ shareURL: `${origin}${pathname}#${hash}` });
@@ -306,7 +308,7 @@ class App extends Component {
 
     return (
       <Container fluid style={{ padding: "24px" }}>
-        <Header as="h1">react-jsonschema-form-semantic-ui</Header>
+        <Header as="h1">react-jsonschema-form-semanticui</Header>
 
         <Grid columns={16}>
           <Grid.Row>
