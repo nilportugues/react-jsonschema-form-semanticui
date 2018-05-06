@@ -43,9 +43,9 @@
     "lodash.topath": "^4.5.2",
     "prop-types": "^15.5.8",
     "react-beautiful-dnd": "^2.6.1",
-    "react-color": "^2.13.8",
+    "react-color": "^2.14.1",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.79.0",
+    "semantic-ui-react": "^0.79.1",
     "setimmediate": "^1.0.5",
     "uuid": "^3.1.0"
   },
