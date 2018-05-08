@@ -54,7 +54,7 @@
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
-    "babel-loader": "^6.0.0",
+    "babel-loader": "6.4.1",
     "babel-plugin-react-transform": "3.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
@@ -94,9 +94,9 @@
     "sinon": "5.0.4",
     "style-loader": "0.21.0",
     "toctoc": "0.3.0",
-    "webpack": "^1.13.3",
-    "webpack-dev-middleware": "^1.8.4",
-    "webpack-hot-middleware": "^2.13.2"
+    "webpack": "1.15.0",
+    "webpack-dev-middleware": "1.12.2",
+    "webpack-hot-middleware": "2.22.1"
   },
   "directories": {
     "test": "test"
