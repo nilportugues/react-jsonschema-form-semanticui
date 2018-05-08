@@ -1,6 +1,8 @@
 react-jsonschema-form-semanticui
 =====================
 
+Port of https://github.com/mozilla-services/react-jsonschema-form to React Semantic UI.
+
 ## Installation
 
 ```
