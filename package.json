@@ -94,7 +94,7 @@
     "sinon": "5.0.4",
     "style-loader": "0.21.0",
     "toctoc": "0.3.0",
-    "webpack": "^1.13.3",
+    "webpack": "^4.0.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-hot-middleware": "^2.13.2"
   },
