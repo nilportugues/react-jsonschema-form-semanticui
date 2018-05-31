@@ -36,8 +36,8 @@ function BaseInput(props) {
       value={value === null ? "" : value}
       {...inputProps}
       onChange={_onChange}
-      onBlur={onBlur && ((event, data) => onBlur(inputProps.id, data.value))}
-      onFocus={onFocus && ((event, data) => onFocus(inputProps.id, data.value))}
+      onBlur={onBlur && ((event, data) => onBlur(inputProps.id, event.target.value))}
+      onFocus={onFocus && ((event, data) => onFocus(inputProps.id, event.target.value))}
     />
   );
 }
