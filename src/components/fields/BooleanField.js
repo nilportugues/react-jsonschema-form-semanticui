@@ -18,8 +18,8 @@ function BooleanField(props) {
     registry = getDefaultRegistry(),
     required,
     disabled,
-    readonly,
-    autofocus,
+    readOnly,
+    autoFocus,
     onChange,
   } = props;
   const { title } = schema;
@@ -40,10 +40,10 @@ function BooleanField(props) {
       value={formData}
       required={required}
       disabled={disabled}
-      readonly={readonly}
+      readOnly={readOnly}
       registry={registry}
       formContext={formContext}
-      autofocus={autofocus}
+      autoFocus={autoFocus}
     />
   );
 }
@@ -57,8 +57,8 @@ if (process.env.NODE_ENV !== "production") {
     formData: PropTypes.bool,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     registry: PropTypes.shape({
       widgets: PropTypes.objectOf(
         PropTypes.oneOfType([PropTypes.func, PropTypes.object])
@@ -73,8 +73,8 @@ if (process.env.NODE_ENV !== "production") {
 BooleanField.defaultProps = {
   uiSchema: {},
   disabled: false,
-  readonly: false,
-  autofocus: false,
+  readOnly: false,
+  autoFocus: false,
 };
 
 export default BooleanField;

@@ -18,8 +18,8 @@ function StringField(props) {
     formData,
     required,
     disabled,
-    readonly,
-    autofocus,
+    readOnly,
+    autoFocus,
     onChange,
     onBlur,
     onFocus,
@@ -46,9 +46,9 @@ function StringField(props) {
       onFocus={onFocus}
       required={required}
       disabled={disabled}
-      readonly={readonly}
+      readOnly={readOnly}
       formContext={formContext}
-      autofocus={autofocus}
+      autoFocus={autoFocus}
       registry={registry}
       placeholder={placeholder}
     />
@@ -75,16 +75,16 @@ if (process.env.NODE_ENV !== "production") {
     formContext: PropTypes.object.isRequired,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
   };
 }
 
 StringField.defaultProps = {
   uiSchema: {},
   disabled: false,
-  readonly: false,
-  autofocus: false,
+  readOnly: false,
+  autoFocus: false,
 };
 
 export default StringField;

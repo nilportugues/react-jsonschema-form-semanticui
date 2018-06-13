@@ -42,9 +42,9 @@ function SelectWidget(props) {
     value,
     required,
     disabled,
-    readonly,
+    readOnly,
     multiple,
-    autofocus,
+    autoFocus,
     onChange,
     onBlur,
     onFocus,
@@ -68,8 +68,8 @@ function SelectWidget(props) {
       defaultValue={value}
       disabled={disabled}
       required={required}
-      autofocus={autofocus}
-      readonly={readonly}
+      autoFocus={autoFocus}
+      readOnly={readOnly}
       onBlur={
         onBlur &&
         ((event, self) => {
@@ -97,7 +97,7 @@ function SelectWidget(props) {
 }
 
 SelectWidget.defaultProps = {
-  autofocus: false,
+  autoFocus: false,
 };
 
 if (process.env.NODE_ENV !== "production") {
@@ -107,12 +107,16 @@ if (process.env.NODE_ENV !== "production") {
     options: PropTypes.shape({
       enumOptions: PropTypes.array,
     }).isRequired,
-    value: PropTypes.any,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
+    readOnly: PropTypes.bool,
     multiple: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
