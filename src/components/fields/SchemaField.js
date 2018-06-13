@@ -137,7 +137,7 @@ if (process.env.NODE_ENV !== "production") {
     rawDescription: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     hidden: PropTypes.bool,
     required: PropTypes.bool,
-    readonly: PropTypes.bool,
+    readOnly: PropTypes.bool,
     displayLabel: PropTypes.bool,
     fields: PropTypes.object,
     formContext: PropTypes.object,
@@ -146,7 +146,7 @@ if (process.env.NODE_ENV !== "production") {
 
 DefaultTemplate.defaultProps = {
   hidden: false,
-  readonly: false,
+  readOnly: false,
   required: false,
   displayLabel: true,
 };
@@ -171,8 +171,8 @@ function SchemaFieldRender(props) {
   const FieldComponent = getFieldComponent(schema, uiSchema, idSchema, fields);
   const { DescriptionField } = fields;
   const disabled = Boolean(props.disabled || uiSchema["ui:disabled"]);
-  const readonly = Boolean(props.readonly || uiSchema["ui:readonly"]);
-  const autofocus = Boolean(props.autofocus || uiSchema["ui:autofocus"]);
+  const readOnly = Boolean(props.readOnly || uiSchema["ui:readOnly"]);
+  const autoFocus = Boolean(props.autoFocus || uiSchema["ui:autoFocus"]);
 
   if (Object.keys(schema).length === 0) {
     // See #312: Ensure compatibility with old versions of React.
@@ -205,8 +205,8 @@ function SchemaFieldRender(props) {
       schema={schema}
       uiSchema={{ ...uiSchema, classNames: undefined }}
       disabled={disabled}
-      readonly={readonly}
-      autofocus={autofocus}
+      readOnly={readOnly}
+      autoFocus={autoFocus}
       errorSchema={fieldErrorSchema}
       formContext={formContext}
     />
@@ -251,7 +251,7 @@ function SchemaFieldRender(props) {
     hidden,
     required,
     disabled,
-    readonly,
+    readOnly,
     displayLabel,
     classNames,
     formContext,
@@ -283,8 +283,8 @@ SchemaField.defaultProps = {
   errorSchema: {},
   idSchema: {},
   disabled: false,
-  readonly: false,
-  autofocus: false,
+  readOnly: false,
+  autoFocus: false,
 };
 
 if (process.env.NODE_ENV !== "production") {

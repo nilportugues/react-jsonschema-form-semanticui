@@ -84,7 +84,7 @@ function DefaultArrayItem(props) {
                       tabIndex="-1"
                       style={btnStyle}
                       disabled={
-                        props.disabled || props.readonly || !props.hasMoveUp
+                        props.disabled || props.readOnly || !props.hasMoveUp
                       }
                       onClick={props.onReorderClick(
                         props.index,
@@ -100,7 +100,7 @@ function DefaultArrayItem(props) {
                       tabIndex="-1"
                       style={btnStyle}
                       disabled={
-                        props.disabled || props.readonly || !props.hasMoveDown
+                        props.disabled || props.readOnly || !props.hasMoveDown
                       }
                       onClick={props.onReorderClick(
                         props.index,
@@ -115,7 +115,7 @@ function DefaultArrayItem(props) {
                       className="array-item-remove"
                       tabIndex="-1"
                       style={btnStyle}
-                      disabled={props.disabled || props.readonly}
+                      disabled={props.disabled || props.readOnly}
                       onClick={props.onDropIndexClick(props.index)}
                     />
                   )}
@@ -159,7 +159,7 @@ function DefaultFixedArrayFieldTemplate(props) {
           <div style={{ position: "relative", float: "right" }}>
             <AddButton
               onClick={props.onAddClick}
-              disabled={props.disabled || props.readonly}
+              disabled={props.disabled || props.readOnly}
             />
           </div>
         )}
@@ -204,7 +204,7 @@ function DefaultNormalArrayFieldTemplate(props) {
               <AddButton
                 key={uuid4()}
                 onClick={props.onAddClick}
-                disabled={props.disabled || props.readonly}
+                disabled={props.disabled || props.readOnly}
               />
             </div>
           )}
@@ -221,8 +221,8 @@ class ArrayField extends Component {
     idSchema: {},
     required: false,
     disabled: false,
-    readonly: false,
-    autofocus: false,
+    readOnly: false,
+    autoFocus: false,
   };
 
   get itemTitle() {
@@ -359,8 +359,8 @@ class ArrayField extends Component {
       name,
       required,
       disabled,
-      readonly,
-      autofocus,
+      readOnly,
+      autoFocus,
       registry = getDefaultRegistry(),
       formContext,
       onBlur,
@@ -391,7 +391,7 @@ class ArrayField extends Component {
           itemErrorSchema,
           itemData: item,
           itemUiSchema: uiSchema.items,
-          autofocus: autofocus && index === 0,
+          autoFocus: autoFocus && index === 0,
           onBlur,
           onFocus,
         });
@@ -402,7 +402,7 @@ class ArrayField extends Component {
       idSchema,
       uiSchema,
       onAddClick: this.onAddClick,
-      readonly,
+      readOnly,
       required,
       schema,
       title,
@@ -423,8 +423,8 @@ class ArrayField extends Component {
       uiSchema,
       formData,
       disabled,
-      readonly,
-      autofocus,
+      readOnly,
+      autoFocus,
       onBlur,
       onFocus,
       registry = getDefaultRegistry(),
@@ -449,9 +449,9 @@ class ArrayField extends Component {
         schema={schema}
         value={items}
         disabled={disabled}
-        readonly={readonly}
+        readOnly={readOnly}
         formContext={formContext}
-        autofocus={autofocus}
+        autoFocus={autoFocus}
       />
     );
   }
@@ -463,8 +463,8 @@ class ArrayField extends Component {
       idSchema,
       name,
       disabled,
-      readonly,
-      autofocus,
+      readOnly,
+      autoFocus,
       onBlur,
       onFocus,
       registry = getDefaultRegistry(),
@@ -486,9 +486,9 @@ class ArrayField extends Component {
         title={title}
         value={items}
         disabled={disabled}
-        readonly={readonly}
+        readOnly={readOnly}
         formContext={formContext}
-        autofocus={autofocus}
+        autoFocus={autoFocus}
       />
     );
   }
@@ -503,8 +503,8 @@ class ArrayField extends Component {
       name,
       required,
       disabled,
-      readonly,
-      autofocus,
+      readOnly,
+      autoFocus,
       registry = getDefaultRegistry(),
       onBlur,
       onFocus,
@@ -562,13 +562,13 @@ class ArrayField extends Component {
           itemUiSchema,
           itemIdSchema,
           itemErrorSchema,
-          autofocus: autofocus && index === 0,
+          autoFocus: autoFocus && index === 0,
           onBlur,
           onFocus,
         });
       }),
       onAddClick: this.onAddClick,
-      readonly,
+      readOnly,
       required,
       schema,
       uiSchema,
@@ -592,13 +592,13 @@ class ArrayField extends Component {
       itemUiSchema,
       itemIdSchema,
       itemErrorSchema,
-      autofocus,
+      autoFocus,
       onBlur,
       onFocus,
     } = props;
     const {
       disabled,
-      readonly,
+      readOnly,
       uiSchema,
       registry = getDefaultRegistry(),
     } = this.props;
@@ -631,8 +631,8 @@ class ArrayField extends Component {
           onFocus={onFocus}
           registry={this.props.registry}
           disabled={this.props.disabled}
-          readonly={this.props.readonly}
-          autofocus={autofocus}
+          readOnly={this.props.readOnly}
+          autoFocus={autoFocus}
         />
       ),
       className: "array-item",
@@ -644,7 +644,7 @@ class ArrayField extends Component {
       index,
       onDropIndexClick: this.onDropIndexClick,
       onReorderClick: this.onReorderClick,
-      readonly,
+      readOnly,
     };
   }
 }
@@ -689,8 +689,8 @@ if (process.env.NODE_ENV !== "production") {
     formData: PropTypes.array,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     registry: PropTypes.shape({
       widgets: PropTypes.objectOf(
         PropTypes.oneOfType([PropTypes.func, PropTypes.object])

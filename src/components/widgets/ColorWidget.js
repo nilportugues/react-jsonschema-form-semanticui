@@ -9,7 +9,7 @@ function ColorWidget(props) {
   const {
     value,
     //disabled,
-    //autofocus,
+    //autoFocus,
     //onBlur,
     //onFocus,
     options,
@@ -145,8 +145,8 @@ ColorWidget.defaultProps = {
   type: "text",
   required: false,
   disabled: false,
-  readonly: false,
-  autofocus: false,
+  readOnly: false,
+  autoFocus: false,
 };
 
 if (process.env.NODE_ENV !== "production") {
@@ -156,8 +156,8 @@ if (process.env.NODE_ENV !== "production") {
     value: PropTypes.any,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,

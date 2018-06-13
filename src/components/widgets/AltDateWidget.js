@@ -23,8 +23,8 @@ function DateElement(props) {
     select,
     rootId,
     disabled,
-    readonly,
-    autofocus,
+    readOnly,
+    autoFocus,
     registry,
     onBlur,
   } = props;
@@ -39,8 +39,8 @@ function DateElement(props) {
       placeholder={type}
       value={value}
       disabled={disabled}
-      readonly={readonly}
-      autofocus={autofocus}
+      readOnly={readOnly}
+      autoFocus={autoFocus}
       onChange={value => select(type, value)}
       onBlur={onBlur}
     />
@@ -51,8 +51,8 @@ class AltDateWidget extends Component {
   static defaultProps = {
     time: false,
     disabled: false,
-    readonly: false,
-    autofocus: false,
+    readOnly: false,
+    autoFocus: false,
   };
 
   constructor(props) {
@@ -82,8 +82,8 @@ class AltDateWidget extends Component {
 
   setNow = event => {
     event.preventDefault();
-    const { time, disabled, readonly, onChange } = this.props;
-    if (disabled || readonly) {
+    const { time, disabled, readOnly, onChange } = this.props;
+    if (disabled || readOnly) {
       return;
     }
     const nowDateObj = parseDateString(new Date().toJSON(), time);
@@ -92,8 +92,8 @@ class AltDateWidget extends Component {
 
   clear = event => {
     event.preventDefault();
-    const { time, disabled, readonly, onChange } = this.props;
-    if (disabled || readonly) {
+    const { time, disabled, readOnly, onChange } = this.props;
+    if (disabled || readOnly) {
       return;
     }
     this.setState(parseDateString("", time), () => onChange(undefined));
@@ -118,7 +118,7 @@ class AltDateWidget extends Component {
   }
 
   render() {
-    const { id, disabled, readonly, autofocus, registry, onBlur } = this.props;
+    const { id, disabled, readOnly, autoFocus, registry, onBlur } = this.props;
     return (
       <ul className="list-inline">
         {this.dateElementProps.map((elemProps, i) => (
@@ -128,10 +128,10 @@ class AltDateWidget extends Component {
               select={this.onChange}
               {...elemProps}
               disabled={disabled}
-              readonly={readonly}
+              readOnly={readOnly}
               registry={registry}
               onBlur={onBlur}
-              autofocus={autofocus && i === 0}
+              autoFocus={autoFocus && i === 0}
             />
           </li>
         ))}
@@ -160,8 +160,8 @@ if (process.env.NODE_ENV !== "production") {
     value: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     time: PropTypes.bool,

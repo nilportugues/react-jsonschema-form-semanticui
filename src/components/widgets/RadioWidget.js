@@ -11,7 +11,7 @@ class RadioGroup extends Component {
       enumOptions.map((option, i) => {
         const checked = option.value === this.props.value;
         const disabledCls =
-          this.props.disabled || this.props.readonly ? "disabled" : "";
+          this.props.disabled || this.props.readOnly ? "disabled" : "";
         const radio = (
           <Checkbox
             radio
@@ -19,8 +19,8 @@ class RadioGroup extends Component {
             name={name}
             required={this.props.required}
             value={option.value}
-            disabled={this.props.disabled || this.props.readonly}
-            autoFocus={this.props.autofocus && i === 0}
+            disabled={this.props.disabled || this.props.readOnly}
+            autoFocus={this.props.autoFocus && i === 0}
             onChange={_ => this.props.onChange(option.value)}
             label={option.label}
           />
@@ -46,7 +46,7 @@ class RadioGroup extends Component {
         {enumOptions.map((option, i) => {
           const checked = option.value === this.props.value;
           const disabledCls =
-            this.props.disabled || this.props.readonly ? "disabled" : "";
+            this.props.disabled || this.props.readOnly ? "disabled" : "";
           const radio = (
             <span>
               <Checkbox
@@ -55,8 +55,8 @@ class RadioGroup extends Component {
                 name={name}
                 required={this.props.required}
                 value={option.value}
-                disabled={this.props.disabled || this.props.readonly}
-                autoFocus={this.props.autofocus && i === 0}
+                disabled={this.props.disabled || this.props.readOnly}
+                autoFocus={this.props.autoFocus && i === 0}
                 onChange={_ => this.props.onChange(option.value)}
                 label={option.label}
               />
@@ -90,7 +90,7 @@ function RadioWidget(props) {
 }
 
 RadioWidget.defaultProps = {
-  autofocus: false,
+  autoFocus: false,
 };
 
 if (process.env.NODE_ENV !== "production") {
@@ -104,8 +104,8 @@ if (process.env.NODE_ENV !== "production") {
     value: PropTypes.any,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
   };
 }

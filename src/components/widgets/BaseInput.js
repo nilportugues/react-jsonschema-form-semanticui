@@ -7,9 +7,9 @@ function BaseInput(props) {
   // exclude the "options" and "schema" ones here.
   const {
     value,
-    readonly,
+    readOnly,
     disabled,
-    autofocus,
+    autoFocus,
     onBlur,
     onFocus,
     options,
@@ -30,9 +30,9 @@ function BaseInput(props) {
 
   return (
     <Input
-      focus={autofocus}
+      focus={autoFocus}
       disabled={disabled}
-      readOnly={readonly}
+      readOnly={readOnly}
       value={value === null ? "" : value}
       {...inputProps}
       onChange={_onChange}
@@ -46,8 +46,8 @@ BaseInput.defaultProps = {
   type: "text",
   required: false,
   disabled: false,
-  readonly: false,
-  autofocus: false,
+  readOnly: false,
+  autoFocus: false,
 };
 
 if (process.env.NODE_ENV !== "production") {
@@ -57,8 +57,8 @@ if (process.env.NODE_ENV !== "production") {
     value: PropTypes.any,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,

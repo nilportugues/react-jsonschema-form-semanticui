@@ -10,8 +10,8 @@ function TextareaWidget(props) {
     value,
     required,
     disabled,
-    readonly,
-    autofocus,
+    readOnly,
+    autoFocus,
     onChange,
     onBlur,
     onFocus,
@@ -28,8 +28,8 @@ function TextareaWidget(props) {
         placeholder={placeholder}
         required={required}
         disabled={disabled}
-        readOnly={readonly}
-        autoFocus={autofocus}
+        readOnly={readOnly}
+        autoFocus={autoFocus}
         rows={options.rows}
         onBlur={onBlur && (event => onBlur(id, event.target.value))}
         onFocus={onFocus && (event => onFocus(id, event.target.value))}
@@ -40,7 +40,7 @@ function TextareaWidget(props) {
 }
 
 TextareaWidget.defaultProps = {
-  autofocus: false,
+  autoFocus: false,
   options: {},
 };
 
@@ -55,8 +55,8 @@ if (process.env.NODE_ENV !== "production") {
     value: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    readonly: PropTypes.bool,
-    autofocus: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
