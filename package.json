@@ -85,7 +85,7 @@
     "prettier": "1.12.1",
     "react": "16.3.2",
     "react-addons-test-utils": "15.6.2",
-    "react-codemirror2": "5.0.1",
+    "react-codemirror2": "5.1.0",
     "react-dom": "16.3.2",
     "react-transform-catch-errors": "1.0.2",
     "react-transform-hmr": "1.0.4",
