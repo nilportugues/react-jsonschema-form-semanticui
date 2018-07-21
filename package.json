@@ -91,7 +91,7 @@
     "react-transform-hmr": "1.0.4",
     "redbox-react": "1.6.0",
     "rimraf": "2.6.2",
-    "sinon": "5.0.7",
+    "sinon": "6.1.4",
     "style-loader": "0.21.0",
     "toctoc": "0.3.0",
     "webpack": "1.15.0",
